@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+  <h1>Pagina de perfil.</h1>
+  {% if user %}
+    <h2> Nome: {{ user.nome }} </h2>
+    <h2> Email: {{ user.email }} </h2>
+  {% else %}
+    <h2> SEM DADOS </h2>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+  <h1>Ainda não tem uma conta? Se inscreva no nosso site.</h1>
+  <form action="/cadastro" method='post'>
+      <input type='radio' name='tipo' value='doador'>
+      <label for='doador'>Doador</label>
+      <input type='radio' name='tipo' value='instituicao'>
+      <label for='doador'>Instituição</label><br>
+
+      <input placeholder='Nome' type='nome' name='nome'><br>
+      <input placeholder='Email' type='email' name='email'><br>
+      <input placeholder='Senha' type='password' name='senha'><br>
+      
+      <ul>
+      {% for mensagem in mensagens %}
+      <li>{{ mensagem }}</li>
+      {% endfor %}
+      </ul>
+      
+      <input type='submit' value='Enviar'>
+  </form>
+{% endblock %}

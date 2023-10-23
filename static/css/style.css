@@ -1,0 +1,48 @@
+*{
+    list-style: none;
+    text-decoration: none;
+
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.center{
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+
+.input{
+    width: 400px;
+    padding: 10px 0px;
+}
+
+.submit{
+    width: 404px;
+    padding: 16px 0px;
+    border-radius: 15px;
+    background-color: #06aaf9;
+    color: #eeeeee;
+    font-size: 1em;
+}
+
+ul{
+    padding: 0;
+}
+
+a:hover{
+    color: #3347fb;
+}
+
+a{
+    color: #179d00;
+}
+
+li{
+    text-decoration: none;
+}
+  
+  
