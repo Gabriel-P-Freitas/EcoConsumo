@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 
-{% block conteudo %}
-  <h1>Ainda não tem uma conta? Se inscreva no nosso site.</h1>
-  <form action="/cadastro" method='post'>
-      <input type='radio' name='tipo' value='doador'>
-      <label for='doador'>Doador</label>
-      <input type='radio' name='tipo' value='instituicao'>
-      <label for='doador'>Instituição</label><br>
+{% block titulo %}CADASTRO{% endblock %}
 
-      <input placeholder='Nome' type='nome' name='nome'><br>
-      <input placeholder='Email' type='email' name='email'><br>
-      <input placeholder='Senha' type='password' name='senha'><br>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+  <div class='cadastro'>
+    <h2>Cadastro.</h2>
+    <form action="/cadastro" method='post'>
+      <input class="input_rad" type='radio' name='tipo' value='doador' required>
+      <label for='doador'>Doador</label>
+      <input class="input_rad" type='radio' name='tipo' value='instituicao' required>
+      <label for='doador'>Instituição</label><br>
       
-      <ul>
-      {% for mensagem in mensagens %}
-      <li>{{ mensagem }}</li>
-      {% endfor %}
-      </ul>
+      <input class="input" placeholder='CPF/CNPJ' type='cp' name='cp' required><br>
+      <input class="input" placeholder='Nome' type='nome' name='nome' required><br>
+      <input class="input" placeholder='Email' type='email' name='email' required><br>
+      <input class="input" placeholder='Senha' type='password' name='senha' required><br>
       
-      <input type='submit' value='Enviar'>
-  </form>
+      <input class="submit" type='submit' value='Cadastrar'>
+    </form>
+  </div>
 {% endblock %}

@@ -4,36 +4,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+  <title>{% block titulo %}{% endblock %}</title>
+
+  {% set tema = session.get('tema') %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tema/' + tema + '.css') }}">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+  {% block head %}
+  {% endblock %}
 </head>
 <body>
-  <div class="container center">
+  <div class="base">
     <header>
-      <div class="header">
+        <h1><a href="{{url_for('index')}}">EcoConsumo</a></h1>
         <nav>
           <ul>
-          
-            <li><a href="{{url_for('home')}}">Pagina inicial</a></li>
+            {% if not session.get('user') %}
             <li><a href="{{url_for('login')}}">Login</a></li>
             <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
+            {% else %}
             <li><a href="{{url_for('buscar')}}">Explorar</a></li>
             <li><a href="{{url_for('perfil')}}">Perfil</a></li>
-            
+            {% endif %}
           </ul>
         </nav>
-      </div>
     </header>
-
-    <section class="hero">
-        <h1>EcoConsumo</h1> <hr>
-
-        {% block conteudo %}
-        {% endblock %}
-
-
-    </section>
+  
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash">
+        {% for category, msg in messages %}
+          <li class="{{ category }}">{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
   </div>
+
+  {% block conteudo %}
+  {% endblock %}
   
 </body>
 </html>

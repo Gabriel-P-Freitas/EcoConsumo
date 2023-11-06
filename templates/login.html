@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
+{% block titulo %}LOGIN{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
 {% block conteudo %}
-    <h1>LOGIN</h1>
+  <div class="login">
+    <h2>LOGIN</h2>
     <form action="/login" method="post">
       <input class="input" type="email" placeholder="Email" name="email"><br>
       <input class="input" type="password" placeholder="Senha" name="senha"> <br>
       
-      <ul>
-      {% for mensagem in mensagens %}
-        <li>{{ mensagem }}</li>
-      {% endfor %}
-      </ul>
-      
-      <input class="submit" type="submit" value="Enviar">
+      <input class="submit" type="submit" value="Entrar">
     </form>
+  </div>
 {% endblock %}
+
+
+  
+  

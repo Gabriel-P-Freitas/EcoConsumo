@@ -1,11 +1,42 @@
+
 {% extends "base.html" %}
 
-{% block conteudo %}
-  <h1>Pagina de perfil.</h1>
-  {% if user %}
-    <h2> Nome: {{ user.nome }} </h2>
-    <h2> Email: {{ user.email }} </h2>
-  {% else %}
-    <h2> SEM DADOS </h2>
-  {% endif %}
+{% block titulo %}PERFIL{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 {% endblock %}
+
+{% block conteudo %}
+  <div class='perfil'>
+    <h2>{{ tipo.upper() }}</h2>
+    <ul>
+    {% if usuario %}
+      {% for coluna, valor in usuario.items() %}
+        <li>{{ coluna }}: {{ valor }}</li>
+      {% endfor %}
+    {% else %}
+      <li> SEM DADOS </li>
+    {% endif %}
+    </ul>
+    
+    {% if proprio %}
+      <form action="{{url_for('cmdperfil')}}" method='post'>
+        <input name='action' class="button" type='submit' value='Sair'><br>
+        <input name='action' class="button" type='submit' value='Excluir conta'>
+      </form>
+    {% elif vinculavel %}
+      {% if not vinculado %}
+        <form action="{{ url_for('vincular', tipo=tipo, id=usuario.id) }}" method='post'>
+          <input name='action2' class="button" type='submit' value='Vincular'><br>
+        </form>
+      {% else %}
+        <form action="{{ url_for('desvincular', tipo=tipo, id=usuario.id) }}" method='post'>
+          <input name='action2' class="button" type='submit' value='Desvincular'><br>
+        </form>
+      {% endif %}
+    {% endif %}
+    
+  </div>
+{% endblock %}
+
