@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +15,14 @@
 
   {% block head %}
   {% endblock %}
+=======
+<html>
+<head>  
+  {% block head %}{% endblock %}
+  
+  <title> EcoConsumo </title>
+  <link rel="icon" href="{{ url_for('static', filename='assets/EcoFavicon.png') }}" type="image/x-icon">
+>>>>>>> joel
 </head>
 <body>
   <div class="base">
@@ -21,17 +30,38 @@
         <h1><a href="{{url_for('index')}}">EcoConsumo</a></h1>
         <nav>
           <ul>
+<<<<<<< HEAD
             {% if not session.get('user') %}
             <li><a href="{{url_for('login')}}">Login</a></li>
             <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
             {% else %}
             <li><a href="{{url_for('buscar')}}">Explorar</a></li>
             <li><a href="{{url_for('perfil')}}">Perfil</a></li>
+=======
+            {% if not current_user.is_authenticated %}
+              <li><a href="{{url_for('login')}}">Login</a></li>
+              <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
+            {% else %}
+                <li><a href="{{url_for('usuario.perfil')}}">Perfil</a></li>
+              {% if current_user.tipo_usuario == 'Doador' %}
+                <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
+              {% elif current_user.tipo_usuario == 'Empresa' %}
+                <li><a href="{{url_for('doador.recovery')}}">Vinculos</a></li>
+              {% elif current_user.tipo_usuario == 'Administrador' %}
+                <li><a href="{{url_for('doador.recovery')}}">Doadores</a></li>
+                <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
+                <li><a href="{{url_for('administrador.recovery')}}">Admnistradores</a></li>
+              {% endif %}
+>>>>>>> joel
             {% endif %}
           </ul>
         </nav>
     </header>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> joel
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <ul class="flash">
@@ -43,8 +73,12 @@
     {% endwith %}
   </div>
 
+<<<<<<< HEAD
   {% block conteudo %}
   {% endblock %}
+=======
+  {% block conteudo %}{% endblock %}
+>>>>>>> joel
   
 </body>
 </html>

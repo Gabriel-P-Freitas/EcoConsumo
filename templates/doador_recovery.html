@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> titulo </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="recovery">
+  <table>
+    <thead>
+      <tr>
+        <th> Nome </th>
+        <th> Email </th>
+        <th> Data de nascimento </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for doador in doadores %}
+      <tr>
+        <td> {{ doador.nome }} </td>
+        <td> {{ doador.email }} </td>
+        <td> {{ doador.nascimento }} </td>
+        <td> <a href="{{ url_for('usuario.perfil', id=doador.id) }}">PERFIL</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> titulo </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="recovery">
+  <table>
+    <thead>
+      <tr>
+        <th> Nome </th>
+        <th> Email </th>
+        <th> CNPJ </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for empresa in empresas %}
+      <tr>
+        <td> {{ empresa.nome }} </td>
+        <td> {{ empresa.email }} </td>
+        <td> {{ empresa.cnpj }} </td>
+        <td> <a href="{{ url_for('usuario.perfil', id=empresa.id) }}">PERFIL</a> </td>
+      </tr>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
