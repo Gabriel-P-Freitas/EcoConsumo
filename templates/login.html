@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 
+{% block head %}
+<title> Login </title>
+{% endblock %}
+
 {% block conteudo %}
-    <h1>LOGIN</h1>
-    <form action="/login" method="post">
+  <div class="login">
+    <h2>LOGIN</h2>
+    <form action="{{url_for('usuario.autenticar')}}" method="post">
+      
       <input class="input" type="email" placeholder="Email" name="email"><br>
       <input class="input" type="password" placeholder="Senha" name="senha"> <br>
+
+      <input class="submit" type="submit" value="Entrar">
       
-      <ul>
-      {% for mensagem in mensagens %}
-        <li>{{ mensagem }}</li>
-      {% endfor %}
-      </ul>
-      
-      <input class="submit" type="submit" value="Enviar">
     </form>
+  </div>
 {% endblock %}

@@ -1,39 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+<html>
+<head>  
+  {% block head %}{% endblock %}
+  
+  <title> EcoConsumo </title>
+  <link rel="icon" href="{{ url_for('static', filename='assets/EcoFavicon.png') }}" type="image/x-icon">
 </head>
 <body>
-  <div class="container center">
+  <div class="base">
     <header>
-      <div class="header">
+        <h1><a href="{{url_for('index')}}">EcoConsumo</a></h1>
         <nav>
           <ul>
-          
-            <li><a href="{{url_for('home')}}">Pagina inicial</a></li>
-            <li><a href="{{url_for('login')}}">Login</a></li>
-            <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
-            <li><a href="{{url_for('buscar')}}">Explorar</a></li>
-            <li><a href="{{url_for('perfil')}}">Perfil</a></li>
-            
+            {% if not current_user.is_authenticated %}
+              <li><a href="{{url_for('login')}}">Login</a></li>
+              <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
+            {% else %}
+                <li><a href="{{url_for('usuario.perfil')}}">Perfil</a></li>
+              {% if current_user.tipo_usuario == 'Doador' %}
+                <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
+              {% elif current_user.tipo_usuario == 'Empresa' %}
+                <li><a href="{{url_for('doador.recovery')}}">Vinculos</a></li>
+              {% elif current_user.tipo_usuario == 'Administrador' %}
+                <li><a href="{{url_for('doador.recovery')}}">Doadores</a></li>
+                <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
+                <li><a href="{{url_for('administrador.recovery')}}">Admnistradores</a></li>
+              {% endif %}
+            {% endif %}
           </ul>
         </nav>
-      </div>
     </header>
 
-    <section class="hero">
-        <h1>EcoConsumo</h1> <hr>
-
-        {% block conteudo %}
-        {% endblock %}
-
-
-    </section>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash">
+        {% for category, msg in messages %}
+          <li class="{{ category }}">{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
   </div>
+
+  {% block conteudo %}{% endblock %}
   
 </body>
 </html>

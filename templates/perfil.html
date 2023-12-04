@@ -1,11 +1,47 @@
 {% extends "base.html" %}
 
+{% block head %}
+<title> Perfil </title>
+{% endblock %}
+
 {% block conteudo %}
-  <h1>Pagina de perfil.</h1>
-  {% if user %}
-    <h2> Nome: {{ user.nome }} </h2>
-    <h2> Email: {{ user.email }} </h2>
-  {% else %}
-    <h2> SEM DADOS </h2>
-  {% endif %}
+<div class='perfil'>
+  {% set tipo = user.tipo_usuario %}
+  
+  <h1>Perfil de {{ tipo }}</h1>
+  
+  <ul>
+    <li> Nome: {{ user.nome }} </li>
+    <li> Email: {{ user.email }} </li>
+    {% if tipo == 'Doador' %}
+      <li> Data de nascimento: {{ user.nascimento }} </li>
+    {% elif tipo == 'Empresa' %}
+      <li> CNPJ: {{ user.cnpj }} </li>
+    {% elif tipo == 'Administrador' %}
+      <li> Nivel: {{ user.nivel }} </li>
+    {% endif %}
+
+    {% if current_user == user %}
+      <li> <a href="{{ url_for('usuario.logout') }}">SAIR</a> </li>
+    {% else %}
+      {% if tipo == 'Empresa' and current_user.tipo_usuario == 'Doador' %}
+        {% if tipo == 'Empresa' and current_user.tipo_usuario == 'Doador' %}
+    
+          {% set rota = 'vinculo.create' if not vinculado else 'vinculo.desvincular' %}
+          {% set acao = 'Vincular' if not vinculado else 'Desvincular' %}
+    
+          <li> 
+            <form action="{{ url_for(rota) }}" method="post">
+              <input class="input" type="hidden" name="id_doador" value="{{ current_user.id }}">
+              <input class="input" type="hidden" name="id_empresa" value="{{ user.id  }}">
+              <input class="submit" type="submit" value="{{ acao }}">
+            </form>
+          </li>
+    
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  </ul>
+  
+</div>
 {% endblock %}
