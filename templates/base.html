@@ -1,28 +1,10 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block titulo %}{% endblock %}</title>
-
-  {% set tema = session.get('tema') %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/tema/' + tema + '.css') }}">
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-
-  {% block head %}
-  {% endblock %}
-=======
 <html>
 <head>  
   {% block head %}{% endblock %}
   
   <title> EcoConsumo </title>
   <link rel="icon" href="{{ url_for('static', filename='assets/EcoFavicon.png') }}" type="image/x-icon">
->>>>>>> joel
 </head>
 <body>
   <div class="base">
@@ -30,14 +12,6 @@
         <h1><a href="{{url_for('index')}}">EcoConsumo</a></h1>
         <nav>
           <ul>
-<<<<<<< HEAD
-            {% if not session.get('user') %}
-            <li><a href="{{url_for('login')}}">Login</a></li>
-            <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
-            {% else %}
-            <li><a href="{{url_for('buscar')}}">Explorar</a></li>
-            <li><a href="{{url_for('perfil')}}">Perfil</a></li>
-=======
             {% if not current_user.is_authenticated %}
               <li><a href="{{url_for('login')}}">Login</a></li>
               <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
@@ -52,16 +26,10 @@
                 <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
                 <li><a href="{{url_for('administrador.recovery')}}">Admnistradores</a></li>
               {% endif %}
->>>>>>> joel
             {% endif %}
           </ul>
         </nav>
     </header>
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> joel
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <ul class="flash">
@@ -73,12 +41,7 @@
     {% endwith %}
   </div>
 
-<<<<<<< HEAD
-  {% block conteudo %}
-  {% endblock %}
-=======
   {% block conteudo %}{% endblock %}
->>>>>>> joel
   
 </body>
 </html>
