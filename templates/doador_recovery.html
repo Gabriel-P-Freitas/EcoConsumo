@@ -11,18 +11,31 @@
       <tr>
         <th> Nome </th>
         <th> Email </th>
-        <th> Data de nascimento </th>
+        {% if current_user.tipo_usuario == 'Empresa' %}
+        <th> Pontos </th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
-      {% for doador in doadores %}
-      <tr>
-        <td> {{ doador.nome }} </td>
-        <td> {{ doador.email }} </td>
-        <td> {{ doador.nascimento }} </td>
-        <td> <a href="{{ url_for('usuario.perfil', id=doador.id) }}">PERFIL</a> </td>
-      </tr>
-      {% endfor %}
+      {% if current_user.tipo_usuario == 'Administrador' %}
+        {% for doador in doadores %}
+          <tr>
+            <td> {{ doador.nome }} </td>
+            <td> {{ doador.email }} </td>
+            <td> <a href="{{ url_for('usuario.perfil', id=doador.id) }}">PERFIL</a> </td>
+          </tr>
+        {% endfor %}
+
+      {% elif current_user.tipo_usuario == 'Empresa' %}
+        {% for doador, vinculo in doadores_vinculados %}
+          <tr>
+            <td> {{ doador.nome }} </td>
+            <td> {{ doador.email }} </td>
+            <td> {{ vinculo.pontos }} </td>
+            <td> <a href="{{ url_for('usuario.perfil', id=doador.id) }}">PERFIL</a> </td>
+          </tr>
+        {% endfor %}
+      {% endif %}
     </tbody>
   </table>
 </div>

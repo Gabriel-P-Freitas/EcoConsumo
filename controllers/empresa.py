@@ -5,6 +5,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 import re
 
 from models.usuario import Empresa
+from models.vinculo import Vinculo
 
 bp_empresa = Blueprint("empresa", __name__, template_folder="templates")
 
@@ -38,5 +39,18 @@ def create():
 
 @bp_empresa.route('/recovery', methods=['GET'])
 def recovery():
-  empresas = Empresa.query.all()
+  todas_empresas = db.session.query(
+    Empresa, Vinculo
+  ).outerjoin(
+    Vinculo, 
+    Vinculo.id_empresa==Empresa.id
+  )
+
+  if current_user.tipo_usuario == 'Doador':
+    empresas = todas_empresas.filter(
+      Vinculo.id_doador==current_user.id
+    ).all()
+  else:
+    empresas = todas_empresas.all()
+  
   return render_template('empresa_recovery.html', empresas=empresas)

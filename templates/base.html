@@ -17,6 +17,9 @@
               <li><a href="{{url_for('cadastro')}}">Cadastro</a></li>
             {% else %}
                 <li><a href="{{url_for('usuario.perfil')}}">Perfil</a></li>
+                <li><a href="{{url_for('entrega.recovery')}}">Entregas</a></li>
+                <li><a href="{{url_for('premio.recovery')}}">Premios</a></li>
+                <li><a href="{{url_for('premio.solicitados_recovery')}}">Premios Solicitados</a></li>
               {% if current_user.tipo_usuario == 'Doador' %}
                 <li><a href="{{url_for('empresa.recovery')}}">Empresas</a></li>
               {% elif current_user.tipo_usuario == 'Empresa' %}

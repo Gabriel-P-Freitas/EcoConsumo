@@ -47,21 +47,15 @@ def recovery():
 
   if current_user.tipo_usuario == 'Administrador' or current_user.id == id:
     doadores = Doador.query.all()
-    permitido = True
-  elif current_user.tipo_usuario == 'Empresa':
-    vinculos = Vinculo.query.filter_by(id_empresa=current_user.id).all()
-    doadores_ids = [vinculo.id_doador for vinculo in vinculos]
-    doadores = Doador.query.filter(Doador.id.in_(doadores_ids)).all()
-    
-    #doadores = Doador.query.join(Vinculo, Vinculo.id_doador == Doador.id)
-    permitido = True
-
-
-  if permitido:
     return render_template('doador_recovery.html', doadores=doadores)
-  else:
-    flash('Acesso negado', 'error')
-    return redirect('/login')
+  elif current_user.tipo_usuario == 'Empresa': # GG
+    doadores_vinculados = db.session.query(Doador, Vinculo).filter(Vinculo.id_doador==Doador.id, Vinculo.id_empresa==current_user.id, Vinculo.status == 'Ativo').all()
+    #doadores = db.session.query(Doador).join(Vinculo, Vinculo.id_doador==Doador.id).filter(Vinculo.id_empresa==current_user.id, Vinculo.status == 'Ativo').all()
+
+    return render_template('doador_recovery.html', doadores_vinculados=doadores_vinculados)
+    
+  flash('Acesso negado', 'error')
+  return redirect('/login')
 
 @bp_doador.route('/update', methods=['GET'])
 @login_required

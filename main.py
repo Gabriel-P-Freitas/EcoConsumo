@@ -7,6 +7,8 @@ from controllers.doador import bp_doador
 from controllers.empresa import bp_empresa
 from controllers.administrador import bp_administrador
 from controllers.vinculo import bp_vinculo
+from controllers.entrega import bp_entrega
+from controllers.premio import bp_premio
 
 # -------------------------- #
 
@@ -23,6 +25,8 @@ app.register_blueprint(bp_doador, url_prefix='/doador')
 app.register_blueprint(bp_empresa, url_prefix='/empresa')
 app.register_blueprint(bp_administrador, url_prefix='/administrador')
 app.register_blueprint(bp_vinculo, url_prefix='/vinculo')
+app.register_blueprint(bp_entrega, url_prefix='/entrega')
+app.register_blueprint(bp_premio, url_prefix='/premio')
 
 db.init_app(app)
 lm.init_app(app)
@@ -43,6 +47,10 @@ def login():
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
+
+@app.errorhandler(401)
+def error(codigo):
+  return redirect(url_for('usuario.logout'))
 
 
 if __name__ == "__main__":

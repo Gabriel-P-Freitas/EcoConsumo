@@ -18,30 +18,29 @@
     {% elif tipo == 'Empresa' %}
       <li> CNPJ: {{ user.cnpj }} </li>
     {% elif tipo == 'Administrador' %}
-      <li> Nivel: {{ user.nivel }} </li>
+      <li> Nivel: {{ user.nivel_acesso }} </li>
     {% endif %}
 
     {% if current_user == user %}
       <li> <a href="{{ url_for('usuario.logout') }}">SAIR</a> </li>
     {% else %}
       {% if tipo == 'Empresa' and current_user.tipo_usuario == 'Doador' %}
-        {% if tipo == 'Empresa' and current_user.tipo_usuario == 'Doador' %}
-    
-          {% set rota = 'vinculo.create' if not vinculado else 'vinculo.desvincular' %}
-          {% set acao = 'Vincular' if not vinculado else 'Desvincular' %}
-    
-          <li> 
-            <form action="{{ url_for(rota) }}" method="post">
-              <input class="input" type="hidden" name="id_doador" value="{{ current_user.id }}">
-              <input class="input" type="hidden" name="id_empresa" value="{{ user.id  }}">
-              <input class="submit" type="submit" value="{{ acao }}">
-            </form>
-          </li>
-    
-        {% endif %}
+  
+        {% set rota = 'vinculo.create' if not vinculado else 'vinculo.desvincular' %}
+        {% set acao = 'Vincular' if not vinculado else 'Desvincular' %}
+  
+        <li> 
+          <form action="{{ url_for(rota) }}" method="post">
+            <input class="input" type="hidden" name="id_doador" value="{{ current_user.id }}">
+            <input class="input" type="hidden" name="id_empresa" value="{{ user.id  }}">
+            <input class="submit" type="submit" value="{{ acao }}">
+          </form>
+        </li>
+
+      {% elif tipo == 'Doador' and current_user.tipo_usuario == 'Empresa' and vinculado %}
+        <li> <a href="{{ url_for('entrega.create', id_vinculo=vinculado) }}">Marcar entrega</a> </li>
       {% endif %}
     {% endif %}
   </ul>
-  
 </div>
 {% endblock %}

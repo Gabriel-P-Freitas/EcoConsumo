@@ -12,14 +12,20 @@
         <th> Nome </th>
         <th> Email </th>
         <th> CNPJ </th>
+        {% if current_user.tipo_usuario == 'Doador' %}
+          <th> Pontos </th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
-      {% for empresa in empresas %}
+      {% for empresa, vinculo in empresas %}
       <tr>
         <td> {{ empresa.nome }} </td>
         <td> {{ empresa.email }} </td>
         <td> {{ empresa.cnpj }} </td>
+        {% if current_user.tipo_usuario == 'Doador' %}
+          <th> {{ vinculo.pontos }} </th>
+        {% endif %}
         <td> <a href="{{ url_for('usuario.perfil', id=empresa.id) }}">PERFIL</a> </td>
       </tr>
       </tr>

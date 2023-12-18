@@ -30,7 +30,10 @@ def perfil(id):
       vinculo = Vinculo.query.filter_by(id_doador=id, id_empresa=current_user.id).first()
       if vinculo:
         if vinculo.status == 'Ativo':
-          vinculado = True
+          vinculado = vinculo.id
+
+        print(f'vinculo: {vinculado}')
+
         return render_template('perfil.html', user=usuario, vinculado=vinculado)
 
   elif tipo == 'Empresa':
@@ -40,8 +43,8 @@ def perfil(id):
       vinculo = Vinculo.query.filter_by(id_doador=current_user.id, id_empresa=id).first()
       if vinculo:
         if vinculo.status == 'Ativo':
-          vinculado = True
-
+          vinculado = vinculo.id
+          
       return render_template('perfil.html', user=usuario, vinculado=vinculado)
     
     return render_template('perfil.html', user=usuario)
