@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'pi-eco-consumo'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C070B970FAEC436F88D5AF0B301880EC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_420A8DC2DF834A9BAB5F692423B94723 }}
