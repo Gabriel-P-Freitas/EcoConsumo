@@ -13,7 +13,8 @@ class Premio(db.Model):
   empresa = db.relationship('Empresa', foreign_keys=id_empresa)
 
 
-  def __init__(self, nome, descricao, pontos):
+  def __init__(self, id_empresa, nome, descricao, pontos):
+    self.id_empresa = id_empresa
     self.nome = nome
     self.descricao = descricao
     self.pontos = pontos

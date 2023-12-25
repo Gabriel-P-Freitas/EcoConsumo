@@ -53,7 +53,7 @@ def create(id_vinculo):
       flash('Adicione uma pontuação a entrega', 'error')
 
     if ok != 3:
-      return redirect(request.url)
+      return redirect(request.referrer)
       
 
     entrega = Entrega(id_vinculo, nome, descricao, pontos)
