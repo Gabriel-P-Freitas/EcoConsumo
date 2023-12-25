@@ -39,26 +39,23 @@ def create():
     else:
       flash('Adicione um nome a premio', 'error')
 
-    if descricao:
+    if len(descricao) < 5000:
       descricao = descricao.strip()
-      if not(len(descricao) >= 10):
-        flash('Descrição deve ter no mínimo 10 caracteres', 'error')      
-      else:
-        ok += 1
+      ok += 1
     else:
-      flash('Adicione uma decrição ao premio', 'error')
+      flash('A descrição pode ter no maximo 5000 caracteres', 'error')
 
     if pontos:
       try:
         pontos = int(pontos)
         ok += 1
       except:
-        flash('Nome deve ter no mínimo 3 caracteres', 'error')
+        flash('Pontos deve ser um numero inteiro', 'error')
     else:
       flash('Adicione uma pontuação ao premio', 'error')
 
-    if ok != 3:
-      return redirect(request.url)
+    if ok < 3:
+      return redirect(request.referrer)
 
     id_empresa = current_user.id
     premio = Premio(id_empresa, nome, descricao, pontos)
