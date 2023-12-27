@@ -1,0 +1,35 @@
+:root{
+    --forest-100: #79DC52;
+    --forest-200: #6EC34B;
+    --forest-300: #5AA43D;
+    --forest-400: #4B8832;
+    --forest-500: #3B6C28;
+    --forest-600: #2B4E1D;
+    --forest-700: #1B3012;
+  
+    --secundary-100: #FFF906;
+    --secundary-200: #FFFA30;
+    --secundary-300: #FFE130; 
+    --secundary-400: #FFC931;
+    --secundary-500: #FFAF30;
+    --secundary-600: #FF9524;
+    --secundary-700: #FF7E14;
+
+    --raphosedy-100: #008ECB;
+    --raphosedy-200: #007AAE;
+    --raphosedy-300: #006792;
+    --raphosedy-400: #005376;
+    --raphosedy-500: #003F5A;
+    --raphosedy-600: #002B3E;
+    --raphosedy-700: #001722;
+
+    --power-Gray-100: #F0F0F1;
+    --power-Gray-200: #DADADA;
+    --power-Gray-300: #BCBCBC;
+    --power-Gray-400: #A0A0A0;
+    --power-Gray-500: #848484;
+    --power-Gray-600: #676767;
+    --power-Gray-700: #494949;
+    --power-Gray-800: #2D2D2D;
+} 
+ 

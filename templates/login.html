@@ -65,10 +65,25 @@
     <!-- <h1>LOGIN</h1>
 
 
+<<<<<<< HEAD
     <form action="/login" method="post">
+=======
+{% block head %}
+<title> Login </title>
+{% endblock %}
+
+{% block conteudo %}
+  <div class="login">
+    <h2>LOGIN</h2>
+    <form action="{{url_for('usuario.autenticar')}}" method="post">
+      
+>>>>>>> eb1b5541f3f53cfdb2b3e729f8a21f694ce2c155
       <input class="input" type="email" placeholder="Email" name="email"><br>
       <input class="input" type="password" placeholder="Senha" name="senha"> <br>
+
+      <input class="submit" type="submit" value="Entrar">
       
+<<<<<<< HEAD
       <ul>
       {% for mensagem in mensagens %}
         <li>{{ mensagem }}</li>
@@ -80,3 +95,8 @@
 </body>
 
 </html>
+=======
+    </form>
+  </div>
+{% endblock %}
+>>>>>>> eb1b5541f3f53cfdb2b3e729f8a21f694ce2c155
