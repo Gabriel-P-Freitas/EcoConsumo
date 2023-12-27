@@ -1,0 +1,20 @@
+.btn-doador-template{
+    padding: 0.75rem 4rem;
+}
+
+
+.btn-forest{
+    border: 2px solid var(--forest-200);
+}
+
+.btn-forest:hover{
+    background-color: var(--forest-200);
+}
+
+.btn-secundary{
+    border: 2px solid var(--secundary-600);
+}
+
+.btn-secundary:hover{
+    background-color: var(--secundary-600);
+}

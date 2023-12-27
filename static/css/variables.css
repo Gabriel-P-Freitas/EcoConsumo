@@ -32,4 +32,14 @@
     --power-Gray-700: #494949;
     --power-Gray-800: #2D2D2D;
 } 
- 
+.forest-200{color: var(--forest-200);} .forest-300{color: var(--forest-300);} .forest-700{color: var(--forest-700);}
+.bg-forest-200{background-color: var(--forest-200);} .bg-forest-300{background-color: var(--forest-300);} .bg-forest-700{background-color: var(--forest-700);}
+
+.secundary-400{color: var(--secundary-400);} .secundary-500{color: var(--secundary-500);} .secundary-600{color: var(--secundary-600);} .secundary-700{color: var(--secundary-700);}
+.bg-secundary-400{background-color: var(--secundary-400);} .bg-secundary-500{background-color: var(--secundary-500);} .bg-secundary-600{background-color: var(--secundary-600);} .bg-secundary-700{background-color: var(--secundary-700);}
+
+.raphosedy-700{color: var(--raphosedy-700);} .raphosedy-600{color: var(--raphosedy-600);} .raphosedy-500{color: var(--raphosedy-500);} .raphosedy-400{color: var(--raphosedy-400);}
+.bg-raphosedy-700{background-color: var(--raphosedy-700);} .bg-raphosedy-600{background-color: var(--raphosedy-600);} .bg-raphosedy-500{background-color: var(--raphosedy-500);} .bg-raphosedy-400{background-color: var(--raphosedy-400);}
+
+.power-Gray-800{color: var(--power-Gray-800);} .power-Gray-700{color: var(--power-Gray-700);} .power-Gray-600{color: var(--power-Gray-600);} .power-Gray-500{color: var(--power-Gray-500);} .power-Gray-400{color: var(--power-Gray-400);} .power-Gray-300{color: var(--power-Gray-300);} .power-Gray-200{color: var(--power-Gray-200);} .power-Gray-100{color: var(--power-Gray-100);} 
+.bg-power-Gray-800{background-color: var(--power-Gray-800);} .bg-power-Gray-700{background-color: var(--power-Gray-700);} .bg-power-Gray-600{background-color: var(--power-Gray-600);} .bg-power-Gray-500{background-color: var(--power-Gray-500);} .bg-power-Gray-400{background-color: var(--power-Gray-400);} .bg-power-Gray-300{background-color: var(--power-Gray-300);} .bg-power-Gray-200{background-color: var(--power-Gray-200);} .bg-power-Gray-100{background-color: var(--power-Gray-100);} 
