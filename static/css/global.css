@@ -73,6 +73,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   height:  100%;
 }
 
+.altura-max{
+  height: 100vh;
+}
+
 .p-32{
   padding: 2rem;
 }
@@ -83,6 +87,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 .p-64{
   padding: 4rem;
+}
+
+.py-64{
+  padding-block: 4rem;
 }
 
 .pt-32{

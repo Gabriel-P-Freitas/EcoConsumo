@@ -9,6 +9,11 @@
     box-shadow: var(--shadow-box);
 }
 
+.btn-duo{
+    width: calc(376px / 2);
+    height: 3rem;
+}
+
 .btn-template-3:hover{
     box-shadow: var(--shadow-box-hover);
 }
@@ -54,4 +59,8 @@
 .btn-stretch:hover{  
     border: 1px solid var(--raphosedy-700);
     box-shadow: var(--shadow-box-hover);
+}
+
+.obrigatorio{
+    color: #C80606;
 }
