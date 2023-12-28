@@ -3,7 +3,7 @@
 }
 
 .btn-template-3{
-    width: 19.5rem;
+    width: calc(100% - 214px);
     height: 3rem;
     border: 1px solid var(--raphosedy-700);
     box-shadow: var(--shadow-box);
@@ -34,7 +34,7 @@
     background: rgba(188, 188, 188, 0.25);
 }
 
-.card-login{
+.card-login, .card-cadastro{
     border: 1px solid var(--raphosedy-600);
     box-shadow: var(--shadow-box);
     border-radius: 0.75rem;
@@ -44,8 +44,6 @@
     border-radius: 10px;
     border: 1px solid var(--raphosedy-600);
     box-shadow: var(--shadow-input);
-    width: 280px;
-    height: 38px;
 }
 
 .btn-stretch{  

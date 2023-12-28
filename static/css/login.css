@@ -40,5 +40,10 @@
   /* NEW LOGIN */
 
   .main-login{
-    padding: 4.5rem 0rem;
+    margin-block: 4.5rem;
+  }
+
+  .input-login{
+    width: calc(100% - 5.3125rem);
+    height: 38px;
   }

@@ -11,3 +11,8 @@ h1{
     line-height:  135%;
     letter-spacing: -1.68px;
 }
+
+p.text-selecao{
+    width: 66.7%;
+    line-height: 160%; /* 28.8px */
+}
