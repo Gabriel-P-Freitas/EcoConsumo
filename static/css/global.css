@@ -15,6 +15,10 @@ button{
   background-color: transparent;
 }
 
+input{
+  background-color: transparent;
+}
+
 a{
   text-decoration: none;
   display: inline-block;
@@ -65,6 +69,22 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   height: 100%;
 }
 
+.altura-100{
+  height:  100%;
+}
+
+.p-32{
+  padding: 2rem;
+}
+
+.p-40{
+  padding: 2.5rem;
+}
+
+.p-64{
+  padding: 4rem;
+}
+
 .pt-32{
   padding-top: 2rem;
 }
@@ -75,6 +95,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 .pt-56{
   padding-top: 3.5rem;
+}
+
+.pt-64{
+  padding-top: 4rem;
 }
 
 .pb-32{
@@ -89,6 +113,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   padding-bottom: 3.5rem;
 }
 
+.pb-64{
+  padding-bottom: 4rem;
+}
+
 .gy-32{
   column-gap: 2rem;
 }
@@ -101,30 +129,30 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   column-gap: 3.5rem;
 }
 
-.text-select{
-  color: var(--green-color, #6EC34B) !important;
+.gx-32{
+  row-gap: 2rem;
+}
+
+.gx-40{
+  row-gap: 2.5rem;
+}
+
+.gx-56{
+  row-gap: 3.5rem;
+}
+
+.fw-extrabold{
+  font-weight: 800;
+}
+
+.text-select:hover{
+  text-decoration: underline;
 }
 
 /* HEADER STYLE */
 
-.header-background{
-  background-color: var(--black-color, #001722);
-  height: 5rem;
-}
-
-.links-header{
-  padding: 0.25rem 0.5rem;
-  color: var(--white-color, #F1F3F5);
-}
-
-.links-header:hover{
-  text-decoration: underline;
-  color: var(--green-color-2, #7CCB3D);
-}
-
-.logo-2{
-  width: 132px;
-  height: 40px;
+.header-ecoconsumo{
+  padding: 0.75rem 0px;
 }
 
 /* HEADER STYLE */
