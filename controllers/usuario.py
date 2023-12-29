@@ -3,6 +3,8 @@ from utils import db, lm
 from flask_login import login_user, logout_user, login_required, current_user
 
 from models.usuario import Usuario
+from models.usuario import Empresa
+from models.usuario import Doador
 from models.vinculo import Vinculo
 
 bp_usuario = Blueprint("usuario", __name__, template_folder="templates")
@@ -65,19 +67,21 @@ def load_user(id):
 
 @bp_usuario.route('/autenticar', methods=['GET', 'POST'])
 def autenticar():
-  email = request.form.get('email')
-  senha = request.form.get('senha')
-  
-  usuario = Usuario.query.filter_by(email = email).first()
 
-  if usuario:
-    if senha == usuario.senha:
-      login_user(usuario)
-      return redirect(url_for('usuario.perfil'))
+  if request.method=='POST':
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+    
+    usuario = Usuario.query.filter_by(email = email).first()
+
+    if usuario:
+      if senha == usuario.senha:
+        login_user(usuario)
+        return redirect(url_for('usuario.perfil'))
+      else:
+        flash('Senha incorreta', 'error')
     else:
-      flash('Senha incorreta', 'error')
-  else:
-    flash('Email incorreto', 'error')
+      flash('Email incorreto', 'error')
 
   return redirect('/login')
 
@@ -85,3 +89,47 @@ def autenticar():
 def logout():
   logout_user()
   return redirect('/')
+
+
+
+## -- ##
+
+@bp_usuario.route('/zautenticar', defaults={'tipo': None}, methods=['GET', 'POST'])
+@bp_usuario.route('/zautenticar/<tipo>', methods=['GET', 'POST'])
+def zautenticar(tipo):
+  print(tipo, 'AAAAAAAA')
+
+  tipo = tipo.lower()
+  if tipo not in ['doador', 'empresa', 'administrador']:
+    redirect(url_for('zselecao'))
+
+  if request.method=='POST':
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+
+    print(email, senha)
+    
+    if tipo == "doador":
+      usuario = Usuario.query.filter_by(email = email).first()
+      print('D')
+    else:
+      usuario = Empresa.query.filter_by(email = email).first()
+      print('E')
+
+    print(usuario)
+    print('1')
+    if usuario:
+      print('2')
+      if senha == usuario.senha:
+        print('3')
+        login_user(usuario)
+        return redirect(url_for('usuario.perfil'))
+      else:
+        flash('Senha incorreta', 'error')
+    else:
+      flash('Email incorreto', 'error')
+
+  if tipo == 'empresa':
+    return redirect(url_for('zlogin_empresa'))
+  else:
+    return redirect(url_for('zlogin_consumidor'))

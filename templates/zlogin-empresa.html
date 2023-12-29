@@ -1,0 +1,56 @@
+{% extends "zbase.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <title>Login | Consumidor</title>
+{% endblock %}
+
+{% block main %}
+    <div class="contents altura-100 bg-power-Gray-100">
+        <header class="header-ecoconsumo bg-raphosedy-700">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="zselecao"><img src="../../static/imgs/Logo Lateral.svg" alt=""></a>
+                <div class="d-flex column-gap-4 align-items-center">
+                    <a href="cadastro-empresa.html"><img src="../../static/imgs/Frame 17.svg" alt=""></a>
+                    <a href="login-empresa.html"><img src="../../static/imgs/Frame 15.svg" alt=""></a>
+                </div>
+            </div>
+
+        </header>
+
+        <main class="container main-login position-relative">
+            <div class="row d-flex align-items-center column-gap-4">
+                <div class="col-5 offset-md-1 z-1 d-flex flex-column justify-content-center">
+                    <h1 class="pb-64 secundary-600 fw-extrabold">Login</h1>
+                    <p class="pb-64 g-font power-Gray-800">A necessidade de contar e ouvir histórias é essencial para a espécie Homo sapiens – segundo em necessidade, aparentemente depois da nutrição</p>
+                    <a class="btn-template-3 d-inline-flex justify-content-center align-items-center secundary-600 fw-semibold gg-font rounded-2 transition-ease-in" href="zselecao">Voltar</a>
+                </div>
+                <div class="background-login offset-md-4 col-3 position-absolute top-0">
+                </div>
+
+                <div class="card-login offset-md-1 p-40 text-center col-4">
+                    <img class="pb-4" src="../../static/imgs/Instituição Icon.svg" alt="">
+                    <h5 class="power-Gray-700 fw-bold pb-2">Empresa</h5>
+                    <h6 class="power-Gray-700 pb-32">Bem-vindo(a) ao <sapn class="forest-200 fw-bold">EcoConsumo</sapn> </h6>
+
+                    <form class="gx-32 d-flex flex-column" action="{{url_for('usuario.zautenticar', tipo='empresa')}}" method="post">
+                        <div class="campos-form d-flex flex-column row-gap-3">
+                            <div class="campo-eco d-flex justify-content-between align-items-center">
+                                <label class="g-font power-Gray-700" for="">Email</label>
+                                <input class="input-eco input-login px-2" type="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="campo-eco d-flex justify-content-between align-items-center">
+                                <label class="g-font power-Gray-700" for="">Senha</label>
+                                <input class="input-eco input-login px-2" type="password" placeholder="Senha" name="senha">
+                            </div>
+
+                            <p class="text-end">Não possui Login? <a href="cadastro-empresa.html" class="forest-200 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
+                        </div>
+
+                        <button class="btn-stretch rounded-2 bg-secundary-600 gg-font power-Gray-100 d-flex justify-content-center p-2 transition-ease-in" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div> 
+        </main>
+    </div>
+{% endblock %}

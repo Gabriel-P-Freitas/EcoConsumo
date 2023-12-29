@@ -11,6 +11,7 @@ from models.vinculo import Vinculo
 bp_empresa = Blueprint("empresa", __name__, template_folder="templates")
 
 
+
 @bp_empresa.route('/create', methods=['GET', 'POST'])
 def create():
 

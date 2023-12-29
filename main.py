@@ -34,7 +34,7 @@ migrate = Migrate(app, db)
 
 # -------------------------- #
 
-@app.route('/')
+
 @app.route('/index')
 @app.route('/home')
 def index():
@@ -52,6 +52,38 @@ def cadastro():
 def error(codigo):
   return redirect(url_for('usuario.logout'))
 
+@app.route('/teste/<pag>')
+def teste(pag):
+    return render_template(f'{pag}.html')
+
+
+## --- ##
+
+@app.route('/')
+@app.route('/zselecao')
+def selecao():
+  return render_template('zselecao.html')
+
+
+@app.route('/zcadastro_consumidor')
+def zcadastro_consumidor():
+  return render_template('zcadastro-consumidor.html')
+
+@app.route('/zcadastro_empresa')
+def zcadastro_empresa():
+  return render_template('zcadastro-empresa.html')
+
+
+@app.route('/zlogin_consumidor')
+def zlogin_consumidor():
+  return render_template('zlogin-consumidor.html')
+
+@app.route('/zlogin_empresa')
+def zlogin_empresa():
+  return render_template('zlogin-empresa.html')
+
+
+
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=81)
+  app.run(host='0.0.0.0', port=81, debug=True)
