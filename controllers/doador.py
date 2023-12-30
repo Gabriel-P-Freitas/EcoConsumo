@@ -104,20 +104,19 @@ def zcreate():
     data_nascimento = request.form.get('nascimento').replace('-', '/')
     telefone = request.form.get('telefone')
 
-    print(data_nascimento)
-
     email = request.form.get('email')
     senha = request.form.get('senha')
+    confirmar = request.form.get('confirmar')
 
     if data_nascimento:
       try:
         data_nascimento_formatada = datetime.strptime(data_nascimento, '%Y/%m/%d').date()
       except:
         flash('Data invalida', 'error')
-        return redirect('/cadastro')
+        return redirect(url_for('zcadastro_consumidor'))
     else:
       flash('Preencha a data de nascimento', 'error')
-      return redirect('/cadastro')
+      return redirect(url_for('zcadastro_consumidor'))
       
     doador = Doador(nome, email, senha, data_nascimento_formatada, telefone)
     db.session.add(doador) 
