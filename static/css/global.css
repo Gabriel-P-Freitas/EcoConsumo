@@ -163,4 +163,25 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   padding: 0.75rem 0px;
 }
 
+.message-system{
+  padding: 1rem 8rem;
+}
+
+.display-block-animation{
+  animation-name: message;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes message {
+
+  from{
+      display: block;
+  }
+
+  to{
+      display: none;
+  }
+}
+
 /* HEADER STYLE */
