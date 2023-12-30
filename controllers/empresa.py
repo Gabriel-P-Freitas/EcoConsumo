@@ -5,7 +5,7 @@ from sqlalchemy import or_, desc
 
 import re
 
-from models.usuario import Empresa
+from models.usuario import Usuario, Empresa
 from models.vinculo import Vinculo
 
 bp_empresa = Blueprint("empresa", __name__, template_folder="templates")
@@ -104,7 +104,13 @@ def zcreate():
       flash('As senhas não correspondem', 'error')
       erro += 1
       
-    if erro == 0:
+    if erro != 0:
+      return redirect(url_for('zcadastro_empresa'))
+
+
+    usuario = Usuario.query.filter_by(email = email).first()
+
+    if not usuario:
       empresa = Empresa(nome, email, senha, cnpj, telefone)
       db.session.add(empresa) 
       db.session.commit()
@@ -112,6 +118,7 @@ def zcreate():
       flash('Empresa cadastrado com sucesso!', 'success')
       return redirect(url_for('zlogin_empresa'))
     else:
-      return redirect(url_for('zcadastro_empresa'))
+      flash('Já existe um usuario com esse email', 'error')
+      return redirect(url_for('zcadastro_consumidor'))
 
   return 'Create usuario Empresa'
