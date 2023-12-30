@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 .display-block-animation{
   animation-name: message;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-fill-mode: forwards;
 }
 
@@ -181,7 +181,24 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
   to{
       display: none;
+      overflow: none;
   }
 }
 
+.scroll-massages {
+  overflow-y: scroll;
+  max-width: 642px;
+  max-height: 56px;
+
+}
+
+.error {
+  color: var(--red-waring);
+}
+
+.success {
+  color: var(--forest-300)
+}
+
 /* HEADER STYLE */
+

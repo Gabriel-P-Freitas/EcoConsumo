@@ -114,10 +114,10 @@ def zcreate():
         data_nascimento_formatada = datetime.strptime(data_nascimento, '%Y/%m/%d').date()
       except:
         flash('Data invalida', 'error')
-        return redirect(url_for('zcadastro_consumidor'))
+        erro += 1
     else:
       flash('Preencha a data de nascimento', 'error')
-      return redirect(url_for('zcadastro_consumidor'))
+      erro += 1
 
     if not nome:
       flash('Digite o nome', 'error')
@@ -129,6 +129,10 @@ def zcreate():
     
     if not senha:
       flash('Digite a senha', 'error')
+      erro += 1
+
+    if senha != confirmar:
+      flash('Senhas digitas são diferentes', 'error')
       erro += 1
 
     if not telefone:
