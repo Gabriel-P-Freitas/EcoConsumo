@@ -88,3 +88,42 @@ def update():
     return render_template('index.html')
 
   return 'Recovery usuario Doador'
+
+
+
+## -- ##
+
+@bp_doador.route('/zcreate', methods=['GET', 'POST'])
+def zcreate():
+
+  if request.method=='GET':
+    return redirect(url_for('zcadastro_consumidor'))
+
+  elif request.method=='POST':
+    nome = request.form.get('nome')
+    data_nascimento = request.form.get('nascimento').replace('-', '/')
+    telefone = request.form.get('telefone')
+
+    print(data_nascimento)
+
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+
+    if data_nascimento:
+      try:
+        data_nascimento_formatada = datetime.strptime(data_nascimento, '%Y/%m/%d').date()
+      except:
+        flash('Data invalida', 'error')
+        return redirect('/cadastro')
+    else:
+      flash('Preencha a data de nascimento', 'error')
+      return redirect('/cadastro')
+      
+    doador = Doador(nome, email, senha, data_nascimento_formatada, telefone)
+    db.session.add(doador) 
+    db.session.commit()
+    
+    flash('Doador cadastrado com sucesso!', 'success')
+    return redirect(url_for('zlogin_consumidor'))
+
+  return 'Create usuario Doador'

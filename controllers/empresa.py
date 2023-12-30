@@ -11,6 +11,7 @@ from models.vinculo import Vinculo
 bp_empresa = Blueprint("empresa", __name__, template_folder="templates")
 
 
+
 @bp_empresa.route('/create', methods=['GET', 'POST'])
 def create():
 
@@ -62,3 +63,55 @@ def recovery():
     empresas = todas_empresas.all()
   
   return render_template('empresa_recovery.html', empresas=empresas)
+
+
+
+## -- ##
+
+@bp_empresa.route('/zcreate', methods=['GET', 'POST'])
+def zcreate():
+
+  if request.method=='GET':
+    return redirect(url_for('zcadastro_empresa'))
+
+  elif request.method=='POST':
+    nome = request.form.get('nome').strip()
+    cnpj = request.form.get('cnpj').strip()
+    telefone = request.form.get('telefone').strip()
+
+    email = request.form.get('email').strip()
+    senha = request.form.get('senha').strip()
+    confirmar = request.form.get('confirmar').strip()
+
+    erro = 0
+    if not nome:
+      flash('Nome invalido', 'error')
+      erro += 1
+
+    if not cnpj:
+      flash('CNPJ invalido', 'error')
+      erro += 1
+
+    if not telefone:
+      flash('Telefone invalido', 'error')
+      erro += 1
+
+    if not senha:
+      flash('Senha invalida', 'error')
+      erro += 1
+
+    if senha != confirmar:
+      flash('As senhas não correspondem', 'error')
+      erro += 1
+      
+    if erro == 0:
+      empresa = Empresa(nome, email, senha, cnpj, telefone)
+      db.session.add(empresa) 
+      db.session.commit()
+      
+      flash('Empresa cadastrado com sucesso!', 'success')
+      return redirect(url_for('zlogin_empresa'))
+    else:
+      return redirect(url_for('zcadastro_empresa'))
+
+  return 'Create usuario Empresa'

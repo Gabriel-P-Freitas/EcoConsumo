@@ -1,0 +1,31 @@
+{% extends "zbase.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/selecao.css') }}">   
+    <title>Seleção | EcoConsumo</title>
+{% endblock %}
+
+{% block main %}
+    <div class="content  bg-raphosedy-700">
+        <main class="container position-relative">
+            <div class="row">
+                <div class="col-6 d-flex flex-column justify-content-center">
+                    <div class="title-apresentation position-relative">
+                        <h1 class="power-Gray-200 fw-light">Vamos ajudar o nosso meio ambiente <span class="secundary-600 fw-bold">juntos!</span> <span class="forest-200 fw-bold">EcoConsumo</span></h1>
+                        <img class="position-absolute t-100" src="../../static/imgs/line.svg" alt="">
+                    </div>
+                    <p>Comece agora sua experiência... lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+                    <div class="link-selecao d-flex column-gap-4">
+                        <a class="btn-forest btn-template power-Gray-100 fw-semibold rounded-2 transition-ease-in" href="{{url_for('zlogin_consumidor')}}">Doador</a>
+                        <a class="btn-secundary btn-template power-Gray-100 fw-semibold rounded-2 transition-ease-in" href="{{url_for('zlogin_empresa')}}">Empresa</a>
+                    </div>
+                </div>
+
+                <div class="col-7 position-absolute end-0 destaque-selecao d-flex justify-content-center align-items-center"> 
+                    <img class="" src="../../static/imgs/Logo.svg" alt="">
+
+                </div>
+            </div>           
+        </main>
+    </div>
+{% endblock %}

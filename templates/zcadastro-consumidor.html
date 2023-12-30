@@ -1,0 +1,122 @@
+{% extends "zbase.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/cadastro.css">
+    <title>Login | Consumidor</title>
+
+    <style>
+        .hidden {
+            display: none !important
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div class="contents bg-power-Gray-100" id="conteudo">
+    <header class="header-ecoconsumo bg-raphosedy-700">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="zselecao"><img src="../../static/imgs/Logo Lateral.svg" alt=""></a>
+            <div class="d-flex column-gap-4 align-items-center">
+                <a href=""><img src="../../static/imgs/Frame 17 - Green.svg" alt=""></a>
+                <a href=""><img src="../../static/imgs/Frame 15 - white.svg" alt=""></a>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="container main-cadastro">
+        <div class="row position-relative altura-100 d-flex align-items-center">
+            <div class="col-6 z-1">
+                <h1 class="forest-200 pb-3 mb-4">Cadastre-se</h1>
+                <h3 class="power-Gray-800 pb-3"><span class="forest-200 fw-bold">Doador</span>, você está prestes a fazer parte do <span class="forest-200 fw-bold">EcoConsumo!</span></h3>
+                <h5 class="power-Gray-800">Você é empresa? <a class="secundary-600 fw-bold p-1 text-select transition-ease-in" href="zcadastro_empresa">Clique aqui</a></h5>
+            </div>
+
+
+            <div class="col-7 bg-cadastro py-4 right-main position-absolute altura-100 end-0 d-flex justify-content-center align-items-center">
+                <div class="card-cadastro p-32 text-center col-4">
+                    <img class="pb-4" src="../../static/imgs/Doador_Icon.svg" alt="">
+                    <h5 class="power-Gray-700 fw-bold pb-2">Cadastro</h5>
+                    <p class="power-Gray-700 xg-font fw-medium pb-2">Por favor digite algumas informações</p>
+                    <div class="power-Gray-700 g-font">
+                        <p id='passos'>Passo 1 de 2</p>
+                        <div class='passo1'>
+                            <img src="../../static/imgs/rounded.svg" alt="">
+                            <img src="../../static/imgs/circle.svg" alt="">
+                        </div>
+                        <div class='passo2 hidden'>
+                            <img src="../../static/imgs/rounded.svg" alt="">
+                            <img src="../../static/imgs/rounded.svg" alt="">
+                        </div>
+                    </div>
+
+                    <form action="{{url_for('doador.zcreate')}}" method="post" class="gx-32 d-flex flex-column">
+                        <div class="campos-form d-flex flex-column row-gap-3 passo1">
+                            <div class="campo-eco text-start">
+                                <label class="d-block g-font power-Gray-700" for="">Nome<span class="obrigatorio">*</span></label>
+                                <input class="input-eco input-cadastro px-2" type="name" placeholder="Nome" name='nome'>
+                            </div>
+
+                            <div class="campo-eco text-start">
+                                <label class="d-block g-font power-Gray-700" for="">Data de nascimento<span class="obrigatorio">*</span></label>
+                                <input class="input-eco input-cadastro px-2" type="date" placeholder="Data de nascimento" name='nascimento'>
+                            </div>
+
+                            <div class="campo-eco text-start">
+                                <label class="d-block g-font power-Gray-700" for="">Telefone<span class="obrigatorio">*</span></label>
+                                <input class="input-eco input-cadastro px-2" type="tel" placeholder="Telefone" name='telefone'>
+                            </div>
+                        </div>
+
+                        <div class="campos-form d-flex flex-column row-gap-3 hidden passo2">
+                            <div class="campo-eco text-start">
+                                <label class="d-block g-font power-Gray-700" for="">Email<span class="obrigatorio">*</span></label>
+                                <input class="input-eco input-cadastro px-2" type="name" placeholder="Email" name='email'>
+                            </div>
+
+                            <div class="campo-eco text-start">
+                                <label class="d-block g-font power-Gray-700" for="">Senha<span class="obrigatorio">*</span></label>
+                                <input class="input-eco input-cadastro px-2" type="password" placeholder="Senha" name='senha'>
+                            </div>
+                        </div>
+
+                        <div class="d-flex column-gap-4 passo1">
+                            <a href="{{url_for('selecao')}}" class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font forest-200 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button">Voltar</a>
+                            <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-forest-200 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo2')" value="Avançar">
+                        </div>
+
+                        <div class="d-flex column-gap-4 hidden passo2">
+                            <a class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font forest-200 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo1')">Voltar</a>
+                            <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-forest-200 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="submit" value="Avançar">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function mostrarParte(partClass) {
+            document.querySelectorAll('.passo1').forEach(function(element) {
+                element.classList.add('hidden');
+            });
+            
+            document.querySelectorAll('.passo2').forEach(function(element) {
+                element.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.' + partClass).forEach(function(element) {
+                element.classList.remove('hidden');
+            });
+
+            var passosParagrafo = document.getElementById('passos');
+            if (partClass === 'passo1') {
+                passosParagrafo.textContent = 'Passo 1 de 2';
+            } else {
+                passosParagrafo.textContent = 'Passo 2 de 2';
+            }
+        }
+    </script>
+</div>
+{% endblock %}
