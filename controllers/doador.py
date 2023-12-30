@@ -108,6 +108,7 @@ def zcreate():
     senha = request.form.get('senha')
     confirmar = request.form.get('confirmar')
 
+    erro = 0
     if data_nascimento:
       try:
         data_nascimento_formatada = datetime.strptime(data_nascimento, '%Y/%m/%d').date()
@@ -117,12 +118,38 @@ def zcreate():
     else:
       flash('Preencha a data de nascimento', 'error')
       return redirect(url_for('zcadastro_consumidor'))
-      
-    doador = Doador(nome, email, senha, data_nascimento_formatada, telefone)
-    db.session.add(doador) 
-    db.session.commit()
+
+    if not nome:
+      flash('Digite o nome', 'error')
+      erro += 1
+
+    if not email:
+      flash('Digite o email', 'error')
+      erro += 1
     
-    flash('Doador cadastrado com sucesso!', 'success')
-    return redirect(url_for('zlogin_consumidor'))
+    if not senha:
+      flash('Digite a senha', 'error')
+      erro += 1
+
+    if not telefone:
+      flash('Digite o telefone', 'error')
+      erro += 1
+
+    if erro != 0:
+      return redirect(url_for('zcadastro_consumidor'))
+
+
+    usuario = Usuario.query.filter_by(email = email).first()
+
+    if not usuario:
+      doador = Doador(nome, email, senha, data_nascimento_formatada, telefone)
+      db.session.add(doador) 
+      db.session.commit()
+      
+      flash('Doador cadastrado com sucesso!', 'success')
+      return redirect(url_for('zlogin_consumidor'))
+    else:
+      flash('Já existe um usuario com esse email', 'error')
+      return redirect(url_for('zcadastro_consumidor'))
 
   return 'Create usuario Doador'
