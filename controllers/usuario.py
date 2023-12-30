@@ -97,7 +97,6 @@ def logout():
 @bp_usuario.route('/zautenticar', defaults={'tipo': None}, methods=['GET', 'POST'])
 @bp_usuario.route('/zautenticar/<tipo>', methods=['GET', 'POST'])
 def zautenticar(tipo):
-  print(tipo, 'AAAAAAAA')
 
   tipo = tipo.lower()
   if tipo not in ['doador', 'empresa', 'administrador']:
@@ -106,22 +105,14 @@ def zautenticar(tipo):
   if request.method=='POST':
     email = request.form.get('email')
     senha = request.form.get('senha')
-
-    print(email, senha)
     
     if tipo == "doador":
       usuario = Usuario.query.filter_by(email = email).first()
-      print('D')
     else:
       usuario = Empresa.query.filter_by(email = email).first()
-      print('E')
 
-    print(usuario)
-    print('1')
     if usuario:
-      print('2')
       if senha == usuario.senha:
-        print('3')
         login_user(usuario)
         return redirect(url_for('usuario.perfil'))
       else:
