@@ -32,7 +32,7 @@ db.init_app(app)
 lm.init_app(app)
 migrate = Migrate(app, db)
 
-# --------------------g------ #
+# -------------------------- #
 
 
 @app.route('/index')
