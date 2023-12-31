@@ -96,6 +96,10 @@ def zcreate():
       flash('Telefone invalido', 'error')
       erro += 1
 
+    if not email:
+      flash('Email invalida', 'error')
+      erro += 1
+
     if not senha:
       flash('Senha invalida', 'error')
       erro += 1
