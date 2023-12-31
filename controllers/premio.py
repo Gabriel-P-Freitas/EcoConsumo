@@ -131,7 +131,7 @@ def solicitar_resgate(id_premio):
     flash('Crie um vinculo com a empresa primeiro.', 'error')  
     return redirect(url_for('usuario.perfil', id=premio.id_empresa))
     
-  if not(vinculo.pontos > premio.pontos):
+  if not(vinculo.pontos >= premio.pontos):
     flash(f'Você não tem pontos suficientes para resgatar esse premio.  Meus pontos: {vinculo.pontos}', 'error')
     return redirect(url_for('premio.recovery'))
     
