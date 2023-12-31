@@ -91,6 +91,8 @@ def zcreate():
     if not cnpj:
       flash('CNPJ invalido', 'error')
       erro += 1
+    else:
+      cnpj = re.sub(r'\D', '', cnpj)
 
     if not telefone:
       flash('Telefone invalido', 'error')
