@@ -39,11 +39,20 @@
 
   /* NEW LOGIN */
 
-  .main-login{
-    margin-block: 4.5rem;
-  }
+.main-login{
+  margin-block: 4.5rem;
+}
 
-  .input-login{
-    width: calc(100% - 5.3125rem);
-    height: 38px;
-  }
+.input-login{
+  width: calc(100% - 5.3125rem);
+  height: 38px;
+}
+
+.btn-google{
+  padding-block: 0.75rem;
+  border: solid 2px;
+}
+.btn-google:hover{
+  background-color: var(--power-Gray-200);
+  opacity: 0.9;
+}
