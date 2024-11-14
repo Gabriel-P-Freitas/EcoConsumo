@@ -4,9 +4,10 @@
   box-sizing: border-box;
 }
 
-html, body, .content{
-  height: 100%;
-  font-family: 'Inter', sans-serif;
+html, body{
+  height: max-content;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--power-Gray-100);
 }
 
 button{

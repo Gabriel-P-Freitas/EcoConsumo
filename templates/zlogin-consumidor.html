@@ -1,7 +1,7 @@
 {% extends "zbase.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="../../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/login.css">
     <title>Login | Consumidor</title>
 {% endblock %}
 
@@ -9,8 +9,8 @@
     <div class="contents altura-100 bg-power-Gray-100">
         <header class="header-ecoconsumo bg-raphosedy-700">
             <div class="container d-flex justify-content-between align-items-center">
-                <a href="zselecao"><img src="../../static/imgs/Logo Lateral.svg" alt=""></a>
-
+                <a href="zselecao"><img src="../static/imgs/Logo Lateral.svg" alt=""></a>
+    
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                 <div class="scroll-massages">
@@ -22,10 +22,10 @@
                 </div>
                 {% endif %}
                 {% endwith %}
-
+    
                 <div class="d-flex column-gap-4 align-items-center">
-                    <a href="zcadastro_consumidor"><img src="../../static/imgs/Frame 17.svg" alt=""></a>
-                    <a href="zlogin_consumidor"><img src="../../static/imgs/Frame 15.svg" alt=""></a>
+                    <a href="zcadastro_consumidor"><img src="../static/imgs/Frame 17.svg" alt=""></a>
+                    <a href="zlogin_consumidor"><img src="../static/imgs/Frame 15.svg" alt=""></a>
                 </div>
             </div>
         </header>
@@ -41,10 +41,10 @@
                 </div>
 
                 <div class="card-login offset-md-1 p-40 text-center col-4">
-                    <img class="pb-4" src="../../static/imgs/Doador_Icon.svg" alt="">
+                    <img class="pb-4" src="../static/imgs/Doador_Icon.svg" alt="">
                     <h5 class="power-Gray-700 fw-bold pb-1">Doador</h5>
                     <h6 class="power-Gray-700 pb-3">Bem-vindo(a) ao <sapn class="forest-200 fw-bold">EcoConsumo</sapn> </h6>
-                    <a class="d-flex align-items-center mb-4 transition-ease-in justify-content-center column-gap-4 power-Gray-700 btn-google fw-semibold rounded-2 fs-large px-4" href=""><img src="./static/imgs/Google.svg" alt="">Acessar com Google</a>
+                    <a class="d-flex align-items-center mb-4 transition-ease-in justify-content-center column-gap-4 power-Gray-700 btn-google fw-semibold rounded-2 fs-large px-4" href=""><img src="../static/imgs/Google.svg" alt="">Acessar com Google</a>
 
                     <form class="gx-32 d-flex flex-column" action="{{url_for('usuario.zautenticar', tipo='doador')}}" method="post">
                         <div class="campos-form d-flex flex-column row-gap-3">
