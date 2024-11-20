@@ -73,3 +73,7 @@
 .card-meta{
   border: 1px solid var(--forest-700);
 }
+
+.col-flex-2{
+  flex: 40% 1 0;
+}
