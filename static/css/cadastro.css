@@ -43,8 +43,13 @@ h1{
   letter-spacing: -1.12px;
 }
 
+.section-cadastro{
+  min-height: max-content;
+  min-width: max-content;
+}
+
 .card-cadastro{
-  min-width: ;
+  min-width: 30rem;
 }
 
 .input-cadastro{
@@ -58,4 +63,32 @@ h1{
 
 .hidden {
   display: none !important
+}
+
+@media screen and (max-width: 992px) {
+  div.contents-cadastro{
+    background-color: var(--power-Gray-200);
+  }
+  section.conteudo-cadastro{
+    display: none;
+  }
+  .section-cadastro{
+    position: static !important; 
+    margin: 0 auto;
+    background-color: transparent !important;
+    padding: 1.5rem;
+  }
+
+  .main-cadastro{
+    padding: 0 !important;
+    height: auto;
+  }
+  
+}
+
+@media screen and (max-width: 576px) {
+  .section-cadastro > .card-cadastro{
+    min-width: max-content;
+  }
+  
 }

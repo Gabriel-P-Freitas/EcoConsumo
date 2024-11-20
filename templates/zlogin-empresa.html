@@ -30,14 +30,14 @@
             </div>
         </header>
 
-        <main class="container main-login position-relative py-5">
+        <main class="container main-cadastro position-relative py-5 row altura-100 align-items-center mx-auto column-gap-4">
             <div class="row align-items-center column-gap-4 altura-100">
                 <div class="col-5 z-1 d-flex flex-column justify-content-center offset-md-1">
                     <h1 class="pb-64 secundary-600 fw-extrabold =">Login</h1>
                     <p class="pb-64 g-font power-Gray-800">Contamos com o sistema gamificado onde os doadores ganham pontos em cada uma de suas entregas até completar a meta estabelecida pela empresa</p>
                     <a class="btn-template-3 py-2 text-center w-content px-100 secundary-600 fw-semibold gg-font rounded-2 transition-ease-in" href="zselecao">Voltar</a>
                 </div>
-                <div class="background-login col-3 position-absolute center-position-x top-0">
+                <div class="background-forms col-3 position-absolute center-position-x top-0">
                 </div>
 
                 <div class="card-login py-32 px-4 text-center col-4 z-1 power-Gray-700">
@@ -56,7 +56,7 @@
                                 <input class="input-eco input-login px-2" type="password" placeholder="Senha" name="senha">
                             </div>
 
-                            <p class="text-end g-font">Não possui Login? <a href="{{url_for('zcadastro_consumidor')}}" class="secundary-600 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
+                            <p class="text-end g-font">Não possui Login? <a href="{{url_for('zcadastro_empresa')}}" class="secundary-600 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
                         </div>
 
                         <button class="btn-stretch rounded-2 bg-secundary-600 gg-font power-Gray-100 d-flex justify-content-center p-2 transition-ease-in" type="submit">Entrar</button>

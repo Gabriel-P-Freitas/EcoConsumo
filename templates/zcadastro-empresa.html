@@ -29,114 +29,109 @@
             </div>
         </div>
     </header>
-    <main class="container main-cadastro">
-        <div class="row position-relative altura-100 d-flex align-items-center">
-            <div class="col-6 z-1">
-                <h1 class="secundary-600 pb-3 mb-4">Cadastre-se</h1>
-                <h3 class="power-Gray-800 pb-3"><span class="secundary-600 fw-bold">Empresa</span>, você está prestes a fazer parte do <span class="forest-200 fw-bold">EcoConsumo!</span></h3>
-                <h5 class="power-Gray-800">Você é doador? <a class="forest-200 fw-bold p-1 text-select transition-ease-in" href="zcadastro_consumidor">Clique aqui</a></h5>
-            </div>
+    <main class="container main-cadastro position-relative py-5 row altura-100 align-items-center mx-auto column-gap-4">
+        
+        <section class="conteudo-cadastro col-5 z-1">
+            <h1 class="secundary-600 pb-3 mb-4">Cadastre-se</h1>
+            <h5 class="power-Gray-800 pb-3"><span class="secundary-600 fw-bold">Empresa</span>, você está prestes a fazer parte do <span class="forest-200 fw-bold">EcoConsumo!</span></h5>
+            <h6 class="power-Gray-800">Você é doador? <a class="forest-200 fw-bold p-1 text-select transition-ease-in" href="zcadastro_consumidor">Clique aqui</a></h6>
+        </section>
 
-            <div class="background-login offset-md-4 col-3 position-absolute top-0">
-            </div>
+        <section class="section-cadastro background-forms position-absolute  py-64 end-0 top-0 col-7 d-flex align-items-center justify-content-center">
+            <div class="card-cadastro p-4 text-center col-4 ">
+                <img class="pb-4" src="../../static/imgs/Instituição Icon.svg" alt="">
+                <h5 class="secundary-600 fw-bold pb-2">Cadastre-se</h5>
+                <p class="power-Gray-700 gg-font fw-medium">Por favor digite algumas informações</p>
+                <div class="power-Gray-700 g-font">
+                    <p id='passos'>Passo 1 de 3</p>
+                    <img src="../../static/imgs/rounded.svg" alt="">
+                    <img src="../../static/imgs/rounded.svg" alt="" class="passo2 passo3">
+                    <img src="../../static/imgs/rounded.svg" alt="" class="passo3">
+                    <img src="../../static/imgs/circle.svg" alt="" class="passo1">
+                    <img src="../../static/imgs/circle.svg" alt="" class="passo1 passo2">
 
+                    
+                </div>
 
-            <div class="col-7 bg-cadastro py-4 right-main position-absolute altura-100 end-0 d-flex justify-content-center align-items-center">
-                <div class="card-cadastro p-32 text-center col-4">
-                    <img class="pb-4" src="../../static/imgs/Instituição Icon.svg" alt="">
-                    <h5 class="power-Gray-700 fw-bold pb-2">Cadastro</h5>
-                    <p class="power-Gray-700 gg-font fw-medium">Por favor digite algumas informações</p>
-                    <div class="power-Gray-700 g-font">
-                        <p id='passos'>Passo 1 de 3</p>
-                        <img src="../../static/imgs/rounded.svg" alt="">
-                        <img src="../../static/imgs/rounded.svg" alt="" class="passo2 passo3">
-                        <img src="../../static/imgs/rounded.svg" alt="" class="passo3">
-                        <img src="../../static/imgs/circle.svg" alt="" class="passo1">
-                        <img src="../../static/imgs/circle.svg" alt="" class="passo1 passo2">
+                <form action="{{url_for('empresa.zcreate')}}" method="post" class="gx-32 d-flex flex-column">
+        
+                    <div class="campos-form d-flex flex-column row-gap-3 passo1">
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Nome<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="name" placeholder="Nome" name="nome">
+                        </div>
 
-                        
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">CNPJ<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" placeholder="xx.xxx.xxx/xxxx-xx" name="cnpj" oninput="formatarCNPJ(this)">
+                        </div>
+
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Telefone<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="tel" placeholder="Telefone" name="telefone">
+                        </div>
                     </div>
 
-                    <form action="{{url_for('empresa.zcreate')}}" method="post" class="gx-32 d-flex flex-column">
-            
-                        <div class="campos-form d-flex flex-column row-gap-3 passo1">
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Nome<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="name" placeholder="Nome" name="nome">
-                            </div>
+                    <div class="d-flex column-gap-4 passo1">
+                        <a href="zselecao" class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center  py-2 transition-ease-in">Voltar</a>
+                        <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo2')" value="Avançar">
+                    </div>
 
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">CNPJ<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" placeholder="xx.xxx.xxx/xxxx-xx" name="cnpj" oninput="formatarCNPJ(this)">
-                            </div>
 
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Telefone<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="tel" placeholder="Telefone" name="telefone">
-                            </div>
+                    <div class="campos-form d-flex flex-column row-gap-3 passo2">
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">CEP<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="number" placeholder="xxxxxx-xxx" name="cep">
                         </div>
 
-                        <div class="d-flex column-gap-4 passo1">
-                            <a href="zselecao" class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center transition-ease-in">Voltar</a>
-                            <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo2')" value="Avançar">
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Bairro<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="text" placeholder="Bairro" name="bairro">
+                        </div>
+                        
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Rua<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="text" placeholder="Rua" name="rua">
                         </div>
 
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Número<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="number" placeholder="Número" name="numero">
+                        </div>
+                    </div>
 
-                        <div class="campos-form d-flex flex-column row-gap-3 passo2">
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">CEP<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="number" placeholder="xxxxxx-xxx" name="cep">
-                            </div>
+                    <div class="d-flex column-gap-4 passo2">
+                        <a class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center py-2 transition-ease-in" type="button" onclick="mostrarParte('passo1')">Voltar</a>
+                        <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo3')" value="Avançar">
+                    </div>
 
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Bairro<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="text" placeholder="Bairro" name="bairro">
-                            </div>
-                            
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Rua<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="text" placeholder="Rua" name="rua">
-                            </div>
 
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Número<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="number" placeholder="Número" name="numero">
-                            </div>
+                    <div class="campos-form d-flex flex-column row-gap-3 passo3">
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Email<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="email" placeholder="Email" name="email">
                         </div>
 
-                        <div class="d-flex column-gap-4 passo2">
-                            <a class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo1')">Voltar</a>
-                            <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo3')" value="Avançar">
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Senha<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="password" placeholder="Senha" name="senha">
+                        </div>
+                        
+                        <div class="campo-eco text-start">
+                            <label class="d-block g-font power-Gray-700" for="">Confimar senha<span class="obrigatorio">*</span></label>
+                            <input class="input-eco input-cadastro px-2" type="password" placeholder="Confimar senha" name="confirmar">
                         </div>
 
+                    </div>
 
-                        <div class="campos-form d-flex flex-column row-gap-3 passo3">
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Email<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="email" placeholder="Email" name="email">
-                            </div>
+                    <div class="d-flex column-gap-4 passo3">
+                        <a class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center py-2 transition-ease-in" type="button" onclick="mostrarParte('passo2')">Voltar</a>
+                        <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="submit" value="Concluir">
+                    </div>
 
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Senha<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="password" placeholder="Senha" name="senha">
-                            </div>
-                            
-                            <div class="campo-eco text-start">
-                                <label class="d-block g-font power-Gray-700" for="">Confimar senha<span class="obrigatorio">*</span></label>
-                                <input class="input-eco input-cadastro px-2" type="password" placeholder="Confimar senha" name="confirmar">
-                            </div>
-
-                        </div>
-
-                        <div class="d-flex column-gap-4 passo3">
-                            <a class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo2')">Voltar</a>
-                            <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="submit" value="Concluir">
-                        </div>
-
-                    </form>
-                </div>
+                </form>
             </div>
-        </div>
+        </section>
     </main>
 </div>
 
