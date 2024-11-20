@@ -1,15 +1,147 @@
 {% extends "zbase.html" %}
 
 {% block head %}
+    <title>Perfil Empresa</title>
     <link rel="stylesheet" href="../static/css/perfil.css">
 
 {% endblock %}
 
 {% block main %}
-    <main class="">
-        <img src="" alt="">
-        <h1 class="fw-semibold">OBOTICÁRIO</h1>
 
-    </main>
+    <div class="contents">
+        <header class="header-ecoconsumo h-empresa montserrat g-font fw-semibold bg-raphosedy-700 ">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="zselecao"><img src="../static/imgs/Logo Lateral.svg" alt=""></a>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <div class="scroll-massages">
+                    {% for category, msg in messages %}
+                    <p class="{{ category }} message-system display-block-animation bg-power-Gray-200 rounded-3  mb-1">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <div class="d-flex column-gap-4 align-items-center">
+                    <a href="zperfil_empresa" class="column-gap-2.5 d-flex align-items-center secundary-600">
+                        <img src="../static/imgs/sc-icon _business outline.svg" alt="">
+                        <p class="">Perfil</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="">
+            <section class="sec-perfil-info bg-raphosedy-700  d-flex align-items-end">
+                <div class="content-perfil container position-relative">
+                    <figure class="perfil-ecoconsumo position-absolute w-content rounded-circle bg-power-Gray-200 p-56">
+                        <img class="" src="../static/imgs/img_perfil.svg" alt="">
+                    </figure>
+                    <h1 class="title-ecoconsumo fw-semibold secundary-600">OBOTICÁRIO</h1>
+                </div>
+            </section>
+
+            <section class="container pb-64">
+                <section class="row align-items-center column-gap-4 pb-5">
+                    <div class="col d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">Email</p>
+                            <p>oboticario.empresa@gmail.com</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">Telefone</p>
+                            <p>(xx) x xxxx-xxxx</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">CNPJ</p>
+                            <p>12.345.678/1234-56</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font pb-1">Endereço</p>
+                            <p>Rua Brusque, 2926</p>
+                            <p>Bairro Potengi</p>
+                            <p>CEP 59112-490</p>
+                        </div>
+                    </div>
+
+                    <div class="col mapa"></div>
+                </section>
+
+                <a href="#" class="forest-700 ">
+                    <i class="fa-solid fa-arrow-down perfil-arrow-down pe-4"></i>
+                    <h5 class="d-inline-block align-top fw-medium">Metas e premiações</h5>
+                </a>
+
+            </section>
+
+            <section class="sec-metas container py-64 power-Gray-800">
+                <h2 class="forest-700 pb-32">Metas</h2>
+
+                <ul class="row row-gap-4 column-gap-4">
+                    <li class="col-flex card-meta px-0 rounded-4 ">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+
+                    <li class="col-flex card-meta px-0 rounded-4">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+
+                    <li class="col-flex card-meta px-0 rounded-4">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+
+                    <li class="col-flex card-meta px-0 rounded-4">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+
+                    <li class="col-flex card-meta px-0 rounded-4">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+
+                    <li class="col-flex card-meta px-0 rounded-4">
+                        <img class="card-img-top p-5 bg-raphosedy-700 rounded-top-4 " src="../static/imgs/papelao-icon.svg" alt="">
+                        <div class="card-body p-4">
+                            <h5 class="forest-700">KG Papelões</h5>
+                            <p>Papelão</p>
+                            <p>1KG - 1 Ponto</p>
+                            <p>Recebe-se Quilos de papelões, na qual cada Quilo vale 1 ponto</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </section>
+
+        </main>
+    </div>
 
 {% endblock %}

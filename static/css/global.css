@@ -34,7 +34,8 @@ li{
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, li, figure{
-  margin: 0 !important;
+  margin: 0 ;
+  padding: 0;
 }
 
 .center-position-x{
@@ -95,12 +96,20 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   padding: 2.5rem;
 }
 
+.p-56{
+  padding: 2.5rem;
+}
+
 .p-64{
   padding: 4rem;
 }
 
 .py-2\.5{
   padding-block: .75rem;
+}
+
+.px-2\.5{
+  padding-inline: .75rem;
 }
 
 .py-32{
@@ -151,6 +160,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   padding-bottom: 4rem;
 }
 
+.column-gap-2\.5{
+  column-gap: .75rem;
+}
+
 .gy-32{
   column-gap: 2rem;
 }
@@ -193,6 +206,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 .text-select:hover{
   text-decoration: underline;
+}
+
+.col-flex{
+  flex: 30% 1 0;
 }
 
 /* HEADER STYLE */

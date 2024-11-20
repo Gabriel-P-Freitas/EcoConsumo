@@ -1,4 +1,4 @@
-.perfil {
+/* .perfil {
     padding: 20px;
   }
   
@@ -41,4 +41,35 @@
   
   .button:hover {
     background-color: #3264c8;
-  }
+  } */
+
+/* zperfil-empresa */
+.title-ecoconsumo{
+  text-indent: 18.25rem;
+}
+
+.sec-perfil-info{
+  height: 14rem;
+  margin-bottom: 140px;
+  border: 1px solid rgba(188, 188, 188, 0.25);
+}
+
+.perfil-ecoconsumo{
+  border: solid 5px var(--raphosedy-600);
+  transform: translateY(-40%);
+  top: 50%;
+}
+
+.mapa{
+  background: url(../imgs/mapa.svg) no-repeat;
+  background-size: contain;
+  height: 25.125rem;
+}
+
+.perfil-arrow-down{
+  font-size: 36px;
+}
+
+.card-meta{
+  border: 1px solid var(--forest-700);
+}
