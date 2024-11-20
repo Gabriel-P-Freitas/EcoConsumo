@@ -3,15 +3,12 @@
 }
 
 .btn-template-3{
-    width: calc(100% - 214px);
-    height: 3rem;
     border: 1px solid var(--raphosedy-700);
     box-shadow: var(--shadow-box);
 }
 
 .btn-duo{
-    width: calc(376px / 2);
-    height: 3rem;
+    flex: 1;
 }
 
 .btn-template-3:hover{

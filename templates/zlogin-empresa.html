@@ -2,7 +2,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="../static/css/login.css">
-    <title>Login | Consumidor</title>
+    <title>Login | Empresa</title>
 {% endblock %}
 
 {% block main %}
@@ -29,7 +29,45 @@
                 </div>
             </div>
         </header>
-        <main class="container main-login position-relative">
+
+        <main class="container main-login position-relative py-5">
+            <div class="row align-items-center column-gap-4 altura-100">
+                <div class="col-5 z-1 d-flex flex-column justify-content-center offset-md-1">
+                    <h1 class="pb-64 secundary-600 fw-extrabold =">Login</h1>
+                    <p class="pb-64 g-font power-Gray-800">Contamos com o sistema gamificado onde os doadores ganham pontos em cada uma de suas entregas até completar a meta estabelecida pela empresa</p>
+                    <a class="btn-template-3 py-2 text-center w-content px-100 secundary-600 fw-semibold gg-font rounded-2 transition-ease-in" href="zselecao">Voltar</a>
+                </div>
+                <div class="background-login col-3 position-absolute center-position-x top-0">
+                </div>
+
+                <div class="card-login py-32 px-4 text-center col-4 z-1 power-Gray-700">
+                    <img class="pb-4" src="../static/imgs/Instituição Icon.svg" alt="">
+                    <h5 class="secundary-600 fw-bold pb-1">Empresa</h5>
+                    <h6 class="pb-4">Bem-vindo(a) ao <sapn class="forest-200 fw-bold">EcoConsumo</sapn> </h6>
+
+                    <form class="gx-32 d-flex flex-column" action="{{url_for('usuario.zautenticar', tipo='doador')}}" method="post">
+                        <div class="campos-form d-flex flex-column row-gap-3">
+                            <div class="campo-eco d-flex justify-content-between align-items-center">
+                                <label class="g-font" for="">Email</label>
+                                <input class="input-eco input-login px-2" type="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="campo-eco d-flex justify-content-between align-items-center">
+                                <label class="g-font" for="">Senha</label>
+                                <input class="input-eco input-login px-2" type="password" placeholder="Senha" name="senha">
+                            </div>
+
+                            <p class="text-end g-font">Não possui Login? <a href="{{url_for('zcadastro_consumidor')}}" class="secundary-600 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
+                        </div>
+
+                        <button class="btn-stretch rounded-2 bg-secundary-600 gg-font power-Gray-100 d-flex justify-content-center p-2 transition-ease-in" type="submit">Entrar</button>
+
+                    </form>
+
+                </div>
+            </div> 
+        </main>
+        
+        <!-- <main class="container main-login position-relative">
             <div class="row d-flex align-items-center column-gap-4">
                 <div class="col-5 offset-md-1 z-1 d-flex flex-column justify-content-center">
                     <h1 class="pb-64 secundary-600 fw-extrabold">Login</h1>
@@ -62,6 +100,6 @@
                     </form>
                 </div>
             </div> 
-        </main>
+        </main> -->
     </div>
 {% endblock %}

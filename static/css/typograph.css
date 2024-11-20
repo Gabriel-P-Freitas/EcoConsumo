@@ -26,9 +26,6 @@ h6{
     font-size: 1.5rem;
 }
 
-.xg-font{
-    font-size: 1.375rem;
-}
 
 .gg-font{
     font-size: 1.25rem;
@@ -37,3 +34,8 @@ h6{
 .g-font{
     font-size: 1.125rem;
 }
+
+.sm-font{
+    font-size: .875rem;
+}
+

@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   margin: 0 !important;
 }
 
+.center-position-x{
+  left: 50%;
+  transform: translatex(-50%);
+}
+
 
 .transition-ease-in{
   transition: all 0.3s ease-in;
@@ -55,14 +60,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 
 .btn-primary-eco{
-  background-color: var(--green-color-2, #7CCB3D);
-  color: var(--white-color, #F1F3F5);
+  background-color: var(--forest-100);
+  color: var(--power-Gray-100);
 }
 
 
 .btn-secundary-eco{
-  background-color: var(--white-color-2, #F7F6F7);
-  color: var(--green-color, #6EC34B);
+  background-color: var(--white-color);
+  color: var(--forest-200);
 }
 
 .totalmente-100{
@@ -78,6 +83,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   height: 100vh;
 }
 
+.w-content{
+  width: max-content;
+}
+
 .p-32{
   padding: 2rem;
 }
@@ -90,8 +99,24 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   padding: 4rem;
 }
 
+.py-2\.5{
+  padding-block: .75rem;
+}
+
+.py-32{
+  padding-block: 2rem;
+}
+
 .py-64{
   padding-block: 4rem;
+}
+
+.px-64{
+  padding-inline: 4rem;
+}
+
+.px-100{
+  padding-inline: 6.25rem;
 }
 
 .pt-32{

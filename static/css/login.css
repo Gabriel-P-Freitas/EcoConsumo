@@ -40,7 +40,11 @@
   /* NEW LOGIN */
 
 .main-login{
-  margin-block: 4.5rem;
+  height: 100vh;
+}
+
+.card-login{
+  min-width: 26.5rem;
 }
 
 .input-login{
@@ -49,9 +53,9 @@
 }
 
 .btn-google{
-  padding-block: 0.75rem;
-  border: solid 2px;
+  border: solid 2px var(--raphosedy-700);
 }
+
 .btn-google:hover{
   background-color: var(--power-Gray-200);
   opacity: 0.9;

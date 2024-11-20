@@ -82,6 +82,10 @@ def zlogin_consumidor():
 def zlogin_empresa():
   return render_template('zlogin-empresa.html')
 
+@app.route('/zperfil_empresa')
+def zperfil_empresa():
+  return render_template('zperfil-empresa.html')
+
 
 
 
