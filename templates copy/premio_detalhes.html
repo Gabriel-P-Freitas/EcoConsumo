@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Premio </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class='entrega_detalhes'>
+  <h1>Detalhes do prêmio</h1>
+
+  <ul>
+    {% for premio, empresa in premios %}
+    <li> Empresa: {{ empresa.nome }} </li>
+    <li> Título do prêmio: {{ premio.nome }} </li>
+    <li> Descrição: {{ premio.descricao }} </li>
+    <li> Pontos: {{ premio.pontos }} </li>
+    {% if current_user.tipo_usuario == 'Doador' %}
+    <li> <a href="{{ url_for('premio.solicitar_resgate', id_premio=premio.id) }}">Solicitar resgate</a> </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

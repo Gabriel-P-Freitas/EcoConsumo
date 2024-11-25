@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Detalhes da entrega </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class='entrega_detalhes'>
+  <h1>Detalhes da entrega</h1>
+
+  <ul>
+    {% for entrega, doador, empresa in entregas %}
+    <li> Doador: {{ doador.nome }} </li>
+    <li> Empresa: {{ empresa.nome }} </li>
+    <li> Nome da entrega: {{ entrega.nome }} </li>
+    <li> Descrição: {{ entrega.descricao }} </li>
+    <li> Pontos: {{ entrega.pontos }} </li>
+    <li> Data: {{ entrega.data }} </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

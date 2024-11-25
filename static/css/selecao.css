@@ -1,0 +1,18 @@
+.destaque-selecao{
+    background: linear-gradient(180deg, rgba(158, 158, 158, 0.10) 0%, rgba(158, 158, 158, 0.10) 20.31%, rgba(158, 158, 158, 0.08) 44.27%);
+    height: 100%;
+}
+
+main.container, div.row{
+    height: 100%;
+}
+
+h1{
+    line-height:  135%;
+    letter-spacing: -1.68px;
+}
+
+p.text-selecao{
+    width: 66.7%;
+    line-height: 160%; /* 28.8px */
+}

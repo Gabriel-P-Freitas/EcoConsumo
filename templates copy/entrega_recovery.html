@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Entregas </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="entrega_recovery">
+  <table>
+    <thead>
+      <tr>
+        <th> Doador </th>
+        <th> Empresa </th>
+        <th> Nome da Entrega </th>
+        <th> Pontos </th>
+        <th> Data </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entrega, doador, empresa in entregas %}
+      <tr>
+        <td> {{ doador.nome }} </td>
+        <td> {{ empresa.nome }} </td>
+        <td> {{ entrega.nome }} </td>
+        <td> {{ entrega.pontos }} </td>
+        <td> {{ entrega.data }} </td>
+        <td> <a href="{{ url_for('entrega.detalhes', id_entrega=entrega.id) }}">Ver detalhes</a> </td>
+      </tr>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

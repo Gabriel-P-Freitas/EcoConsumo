@@ -1,0 +1,94 @@
+/* 
+.cadastro {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 0px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .cadastro h2 {
+    color: #333;
+  }
+  
+  .input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input::placeholder {
+    color: #999;
+  }
+  
+  .submit {
+    width: 90%;
+    padding: 10px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit:hover {
+    background-color: var(--cor1);;
+  } */
+
+h1{
+  border-bottom: 1px solid var(--forest-700);
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -1.12px;
+}
+
+.section-cadastro{
+  min-height: max-content;
+  min-width: max-content;
+}
+
+.card-cadastro{
+  min-width: 30rem;
+}
+
+.input-cadastro{
+  width: 100%;
+  height: 40px;
+}
+
+.main-cadastro{
+  height: 100vh;
+}
+
+.hidden {
+  display: none !important
+}
+
+@media screen and (max-width: 992px) {
+  div.contents-cadastro{
+    background-color: var(--power-Gray-200);
+  }
+  section.conteudo-cadastro{
+    display: none;
+  }
+  .section-cadastro{
+    position: static !important; 
+    margin: 0 auto;
+    background-color: transparent !important;
+    padding: 1.5rem;
+  }
+
+  .main-cadastro{
+    padding: 0 !important;
+    height: auto;
+  }
+  
+}
+
+@media screen and (max-width: 576px) {
+  .section-cadastro > .card-cadastro{
+    min-width: max-content;
+  }
+  
+}

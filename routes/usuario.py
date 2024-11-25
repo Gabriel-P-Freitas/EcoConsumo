@@ -1,0 +1,73 @@
+from flask import Blueprint, url_for, render_template, redirect, request, session
+from api import api_request
+
+
+bp = Blueprint('usuario', __name__)
+
+@bp.route('/autenticar', methods=['GET', 'POST'])
+def autenticar():
+    print('AUTENTICAR')
+    if request.method == 'GET':
+        return redirect(url_for('basic.selecao'))
+    
+    elif request.method == 'POST':
+        # Obter dados
+        user_type = request.args.get('user_type')
+
+        email = request.form.get('email')
+        password = request.form.get('senha')
+
+        data = {
+            "email": email,
+            "password": password,
+        }
+
+        # Enviar para API
+        response = api_request('POST', 'user/auth', data=data)
+        if response.status_code == 200:
+            token = response.json().get('access_token')
+            session['token'] = token
+
+            if user_type == 'empresa':
+                return redirect(url_for('empresa.perfil'))
+            
+            return redirect(url_for('basic.index'))
+        
+        print(f'ERRO {response.status_code} {response.text}')
+        return redirect(request.referrer)
+
+@bp.route('/cadastrar', methods=['GET', 'POST'])
+def cadastrar():
+    print('CADASTRAR')
+    if request.method == 'GET':
+        return redirect(url_for('basic.selecao'))
+    
+    elif request.method == 'POST':
+        # Obter dados
+        user_type = request.args.get('user_type')
+
+        name = request.form.get('nome')
+        email = request.form.get('email')
+        password = request.form.get('senha')
+        phone = request.form.get('telefone', '')
+
+        birth_date = request.form.get('nascimento', '')
+        cnpj = request.form.get('cnpj', '')
+        
+        data = {
+            "user_type": user_type,
+            "name": name,
+            "email": email,
+            "password": password,
+            "birth_date": birth_date,
+            "phone": phone,
+            "cnpj": cnpj
+        }
+
+        # Enviar para API
+        response = api_request('POST', 'user', data=data)
+        if response.status_code == 201:
+            return redirect(url_for('basic.selecao'))
+        
+        #print(f'ERRO {response.status_code} {response.text}')
+        return redirect(request.referrer)

@@ -1,0 +1,110 @@
+.selecao-eco{
+}
+
+.selecao-eco h3{
+    font-weight: 400;
+}
+
+
+.logo-selecao{
+    width: 21rem;
+    height: 17rem;
+}
+
+a.button-selecao > button{
+    padding: 12px 80px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.doador-btn>button{
+    background-color: var(--green-color);
+}
+
+.empresa-btn>button{
+    background-color: var(--white-color);
+}
+
+.selecao h3{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.buttons-selecao{
+    gap: 16px;
+}
+
+.login-doador{
+    background-color: #F0F0F1;
+}
+
+.bakcground-header {
+    height: 80px;
+    background-color: var(--black-color);
+}
+
+.header-links{
+    gap: 24px;
+}
+
+.header{
+    height: 100%;
+    align-items: center;
+}
+
+.span-cadastre{
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.main-login{
+    max-width: 544px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.main-login  .h3-logins{
+    margin-top: 32px;
+    margin-bottom: 56px;
+}
+
+.main-login h3{
+    font-weight: 400;
+}
+
+.first-h3-login{
+    font-weight: 500 !important;
+    margin-bottom: 24px;
+}
+
+.inputs{
+    width: 450px;
+    align-items: center;
+}
+
+.input-1-login{
+    margin-bottom: 32px;
+}
+
+.input-login{
+    width: 380.5px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.right-text{
+    margin-left: auto;
+    width: 340px;
+}
+  
+  

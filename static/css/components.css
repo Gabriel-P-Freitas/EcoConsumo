@@ -1,0 +1,63 @@
+.btn-template{
+    padding: 0.75rem 4rem;
+}
+
+.btn-template-3{
+    border: 1px solid var(--raphosedy-700);
+    box-shadow: var(--shadow-box);
+}
+
+.btn-duo{
+    flex: 1;
+}
+
+.btn-template-3:hover{
+    box-shadow: var(--shadow-box-hover);
+}
+
+.btn-forest{
+    border: 2px solid var(--forest-200);
+}
+
+.btn-forest:hover{
+    background-color: var(--forest-200);
+}
+
+.btn-secundary{
+    border: 2px solid var(--secundary-600);
+}
+
+.btn-secundary:hover{
+    background-color: var(--secundary-600);
+}
+
+.background-forms{
+    height: 100%;
+    background: rgba(188, 188, 188, 0.25);
+}
+
+.card-login, .card-cadastro{
+    border: 1px solid var(--raphosedy-600);
+    box-shadow: var(--shadow-box);
+    border-radius: 0.75rem;
+}
+
+.input-eco{
+    border-radius: 10px;
+    border: 1px solid var(--raphosedy-600);
+    box-shadow: var(--shadow-input);
+}
+
+.btn-stretch{  
+    border: 1px solid var(--raphosedy-700);
+    box-shadow: var(--shadow-box);
+}
+
+.btn-stretch:hover{  
+    border: 1px solid var(--raphosedy-700);
+    box-shadow: var(--shadow-box-hover);
+}
+
+.obrigatorio{
+    color: #C80606;
+}

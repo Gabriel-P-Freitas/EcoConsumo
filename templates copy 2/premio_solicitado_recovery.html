@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Premios Solicitados </title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="solicitados_recovery">
+  <table>
+    <thead>
+      <tr>
+        <th> Doador </th>
+        <th> Empresa </th>
+        <th> Prêmio </th>
+        <th> Pontos </th>
+        <th> Status </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for resgatado, premio, empresa, doador in premiosR %}
+      <tr>
+        <td> {{ doador.nome }} </td>
+        <td> {{ empresa.nome }} </td>
+        <td> {{ premio.nome }} </td>
+        <td> {{ premio.pontos }} </td>
+        <td> {{ resgatado.status }} </td>
+        <td> <a href="{{ url_for('premio.detalhes', id_premio=premio.id) }}">Ver detalhes</a> </td>
+
+        {% if current_user.tipo_usuario == 'Empresa' %}
+        <form action="{{ url_for('premio.solicitado_resultado', id_resgate=resgatado.id) }}" method="post">
+            <td><button type="submit" name="status" value="aceito">Conceder</button></td>
+            <td><button type="submit" name="status" value="recusado">Recusar</button></td>
+        </form>
+        {% endif %}
+      </tr>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

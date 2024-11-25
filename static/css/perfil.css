@@ -1,0 +1,79 @@
+/* .perfil {
+    padding: 20px;
+  }
+  
+  .perfil h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .perfil ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .perfil il {
+    font-size: 18px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+  }
+  
+  .perfil li:last-child {
+    border-bottom: none;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 2px 10px;
+    background-color: #326496;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0px;
+    font-size: 16px;
+  }
+  
+  .button:hover {
+    background-color: #3264c8;
+  } */
+
+/* zperfil-empresa */
+.title-ecoconsumo{
+  text-indent: 18.25rem;
+}
+
+.sec-perfil-info{
+  height: 14rem;
+  margin-bottom: 140px;
+  border: 1px solid rgba(188, 188, 188, 0.25);
+}
+
+.perfil-ecoconsumo{
+  border: solid 5px var(--raphosedy-600);
+  transform: translateY(-40%);
+  top: 50%;
+}
+
+.mapa{
+  background: url(../imgs/mapa.svg) no-repeat;
+  background-size: contain;
+  height: 25.125rem;
+}
+
+.perfil-arrow-down{
+  font-size: 36px;
+}
+
+.card-meta{
+  border: 1px solid var(--forest-700);
+}
+
+.col-flex-2{
+  flex: 40% 1 0;
+}
