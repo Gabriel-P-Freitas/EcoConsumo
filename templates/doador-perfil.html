@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Perfil Doador</title>
+    <link rel="stylesheet" href="../static/css/perfil.css">
+{% endblock %}
+
+<div class="contents">
+    {% block header_current %}
+        <div class="d-flex column-gap-4 align-items-center">
+            <a href="#" class="column-gap-2.5 d-flex align-items-center secundary-600">
+                <img src="../static/imgs/sc-icon _business outline.svg" alt="">
+                <p class="">Perfil</p>
+            </a>
+        </div>
+    {% endblock %}
+    {% block main %}
+        <main class="">
+            <section class="sec-perfil-info bg-raphosedy-700  d-flex align-items-end">
+                <div class="content-perfil container position-relative">
+                    <figure class="perfil-ecoconsumo position-absolute w-content rounded-circle bg-power-Gray-200 p-56">
+                        <img class="" src="../static/imgs/perfil_doador.svg" alt="">
+                    </figure>
+                    <h1 class="title-ecoconsumo fw-semibold forest-200">Joel</h1>
+                </div>
+            </section>
+
+            <section class="container mx-auto row align-items-center column-gap-4 pb-5">
+                <div class="col-3">
+                    <h6>Minhas Entregas</h6>
+                </div>
+                <div class="col-5 d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
+                    <div class="py-1 border-bottom border-black">
+                        <p class="g-font">Email</p>
+                        <p>oboticario.empresa@gmail.com</p>
+                    </div>
+                    <div class="py-1 border-bottom border-black">
+                        <p class="g-font">Telefone</p>
+                        <p>(xx) x xxxx-xxxx</p>
+                    </div>
+                    <div class="py-1 border-bottom border-black">
+                        <p class="g-font">CNPJ</p>
+                        <p>12.345.678/1234-56</p>
+                    </div>
+                    <div class="py-1 border-bottom border-black">
+                        <p class="g-font pb-1">Endereço</p>
+                        <p>Rua Brusque, 2926</p>
+                        <p>Bairro Potengi</p>
+                        <p>CEP 59112-490</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    {% endblock %}
+</div>

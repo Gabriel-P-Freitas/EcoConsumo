@@ -19,6 +19,26 @@
 
 </head>
 <body>
+    <header class="header-ecoconsumo h-empresa montserrat g-font fw-semibold bg-raphosedy-700 ">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{{url_for('basic.selecao')}}"><img src="../static/imgs/Logo Lateral.svg" alt=""></a>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="scroll-massages">
+                {% for category, msg in messages %}
+                <p class="{{ category }} message-system display-block-animation bg-power-Gray-200 rounded-3  mb-1">
+                    {{ msg }}
+                </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            
+            {% block header_current %}
+            {% endblock %}
+            
+        </div>
+    </header>
 
     {% block main %}
     {% endblock %}
