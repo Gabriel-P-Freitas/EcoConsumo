@@ -1,3 +1,7 @@
+.header-ecoconsumo{
+    display: none;
+}
+
 .destaque-selecao{
     background: linear-gradient(180deg, rgba(158, 158, 158, 0.10) 0%, rgba(158, 158, 158, 0.10) 20.31%, rgba(158, 158, 158, 0.08) 44.27%);
     height: 100%;

@@ -5,67 +5,50 @@
     <title>Login | Consumidor</title>
 {% endblock %}
 
+{% block header_current %}
+    <div class="d-flex column-gap-4 align-items-center">
+        <a class="header-element power-Gray-300" href="{{url_for('doador.cadastro')}}"><img src="../static/imgs/cadastro-white.svg" alt="">Cadastre-se</a>
+        <a class="header-element forest-200" href="{{url_for('doador.login')}}"><img src="../static/imgs/login-doador.svg" alt="">Login</a>
+    </div>
+{% endblock %}
+    
+
 {% block main %}
-    <div class="contents altura-100 bg-power-Gray-100">
-        <header class="header-ecoconsumo bg-raphosedy-700">
-            <div class="container d-flex justify-content-between align-items-center">
-                <a href="{{url_for('basic.selecao')}}"><img src="../static/imgs/Logo Lateral.svg" alt=""></a>
-    
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                <div class="scroll-massages">
-                    {% for category, msg in messages %}
-                    <p class="{{ category }} message-system display-block-animation bg-power-Gray-200 rounded-3  mb-1">
-                        {{ msg }} 
-                    </p>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                {% endwith %}
-    
-                <div class="d-flex column-gap-4 align-items-center">
-                    <a href="{{url_for('doador.cadastro')}}"><img src="../static/imgs/Frame 17.svg" alt=""></a>
-                    <a href="{{url_for('doador.login')}}"><img src="../static/imgs/Frame 15.svg" alt=""></a>
-                </div>
+    <main class="container main-login position-relative py-5">
+        <div class="row align-items-center column-gap-4 altura-100">
+            <div class="col-5 z-1 d-flex flex-column justify-content-center offset-md-1">
+                <h1 class="pb-64 forest-200 fw-extrabold =">Login</h1>
+                <p class="pb-64 g-font power-Gray-800">Contamos com o sistema gamificado onde os doadores ganham pontos em cada uma de suas entregas até completar a meta estabelecida pela empresa</p>
+                <a class="btn-template-3 py-2 text-center w-content px-100 forest-200 fw-semibold gg-font rounded-2 transition-ease-in" href="{{url_for('basic.selecao')}}">Voltar</a>
             </div>
-        </header>
+            <div class="background-forms col-3 position-absolute center-position-x top-0">
+            </div>
 
-        <main class="container main-login position-relative py-5">
-            <div class="row align-items-center column-gap-4 altura-100">
-                <div class="col-5 z-1 d-flex flex-column justify-content-center offset-md-1">
-                    <h1 class="pb-64 forest-200 fw-extrabold =">Login</h1>
-                    <p class="pb-64 g-font power-Gray-800">Contamos com o sistema gamificado onde os doadores ganham pontos em cada uma de suas entregas até completar a meta estabelecida pela empresa</p>
-                    <a class="btn-template-3 py-2 text-center w-content px-100 forest-200 fw-semibold gg-font rounded-2 transition-ease-in" href="{{url_for('basic.selecao')}}">Voltar</a>
-                </div>
-                <div class="background-forms col-3 position-absolute center-position-x top-0">
-                </div>
+            <div class="card-login py-32 px-4 text-center col-4 z-1">
+                <img class="pb-4" src="../static/imgs/Doador_Icon_white.svg" alt="">
+                <h5 class="power-Gray-700 fw-bold pb-1">Doador</h5>
+                <h6 class="power-Gray-700 pb-3">Bem-vindo(a) ao <sapn class="forest-200 fw-bold">EcoConsumo</sapn> </h6>
+                <a class="btn-google d-flex align-items-center mb-4 transition-ease-in justify-content-center column-gap-4 power-Gray-700 py-2.5 fw-semibold rounded-2 fs-large px-4" href=""><img src="../static/imgs/Google.svg" alt="">Acessar com Google</a>
 
-                <div class="card-login py-32 px-4 text-center col-4 z-1">
-                    <img class="pb-4" src="../static/imgs/Doador_Icon.svg" alt="">
-                    <h5 class="power-Gray-700 fw-bold pb-1">Doador</h5>
-                    <h6 class="power-Gray-700 pb-3">Bem-vindo(a) ao <sapn class="forest-200 fw-bold">EcoConsumo</sapn> </h6>
-                    <a class="btn-google d-flex align-items-center mb-4 transition-ease-in justify-content-center column-gap-4 power-Gray-700 py-2.5 fw-semibold rounded-2 fs-large px-4" href=""><img src="../static/imgs/Google.svg" alt="">Acessar com Google</a>
-
-                    <form class="gx-32 d-flex flex-column" action="{{url_for('usuario.autenticar', user_type='doador')}}" method="post">
-                        <div class="campos-form d-flex flex-column row-gap-3">
-                            <div class="campo-eco d-flex justify-content-between align-items-center">
-                                <label class="g-font power-Gray-700" for="">Email</label>
-                                <input class="input-eco input-login px-2" type="email" placeholder="Email" name="email">
-                            </div>
-                            <div class="campo-eco d-flex justify-content-between align-items-center">
-                                <label class="g-font power-Gray-700" for="">Senha</label>
-                                <input class="input-eco input-login px-2" type="password" placeholder="Senha" name="senha">
-                            </div>
-
-                            <p class="text-end g-font">Não possui Login? <a href="{{url_for('doador.cadastro')}}" class="forest-200 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
+                <form class="gx-32 d-flex flex-column" action="{{url_for('usuario.autenticar', user_type='doador')}}" method="post">
+                    <div class="campos-form d-flex flex-column row-gap-3">
+                        <div class="campo-eco d-flex justify-content-between align-items-center">
+                            <label class="g-font power-Gray-700" for="">Email</label>
+                            <input class="input-eco input-login px-2" type="email" placeholder="Email" name="email">
+                        </div>
+                        <div class="campo-eco d-flex justify-content-between align-items-center">
+                            <label class="g-font power-Gray-700" for="">Senha</label>
+                            <input class="input-eco input-login px-2" type="password" placeholder="Senha" name="senha">
                         </div>
 
-                        <button class="btn-stretch rounded-2 bg-forest-200 gg-font power-Gray-100 d-flex justify-content-center p-2 transition-ease-in" type="submit">Entrar</button>
+                        <p class="text-end g-font">Não possui Login? <a href="{{url_for('doador.cadastro')}}" class="forest-200 fw-bold text-select transition-ease-in">Cadastre-se</a>  </p>
+                    </div>
 
-                    </form>
+                    <button class="btn-stretch rounded-2 bg-forest-200 gg-font power-Gray-100 d-flex justify-content-center p-2 transition-ease-in" type="submit">Entrar</button>
 
-                </div>
-            </div> 
-        </main>
-    </div>
+                </form>
+
+            </div>
+        </div> 
+    </main>
 {% endblock %}
