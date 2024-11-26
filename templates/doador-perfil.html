@@ -16,7 +16,7 @@
     {% endblock %}
     {% block main %}
         <main class="">
-            <section class="sec-perfil-info bg-raphosedy-700  d-flex align-items-end">
+            <section class="sec-perfil-info bg-raphosedy-700 mb-3 d-flex align-items-end">
                 <div class="content-perfil container position-relative">
                     <figure class="perfil-ecoconsumo position-absolute w-content rounded-circle bg-power-Gray-200 p-56">
                         <img class="" src="../static/imgs/perfil_doador.svg" alt="">
@@ -25,31 +25,40 @@
                 </div>
             </section>
 
-            <section class="container mx-auto row align-items-center column-gap-4 pb-5">
-                <div class="col-3">
+            <div class="content-perfil mx-auto container row">
+                <section class="col-3">
                     <h6>Minhas Entregas</h6>
-                </div>
-                <div class="col-5 d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
-                    <div class="py-1 border-bottom border-black">
-                        <p class="g-font">Email</p>
-                        <p>oboticario.empresa@gmail.com</p>
+                </section>
+                <section class="col-6 align-items-center column-gap-4 pb-5">
+                    <div class=" d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">Email</p>
+                            <p>oboticario.empresa@gmail.com</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">Telefone</p>
+                            <p>(xx) x xxxx-xxxx</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font">CNPJ</p>
+                            <p>12.345.678/1234-56</p>
+                        </div>
+                        <div class="py-1 border-bottom border-black">
+                            <p class="g-font pb-1">Endereço</p>
+                            <p>Rua Brusque, 2926</p>
+                            <p>Bairro Potengi</p>
+                            <p>CEP 59112-490</p>
+                        </div>
                     </div>
-                    <div class="py-1 border-bottom border-black">
-                        <p class="g-font">Telefone</p>
-                        <p>(xx) x xxxx-xxxx</p>
-                    </div>
-                    <div class="py-1 border-bottom border-black">
-                        <p class="g-font">CNPJ</p>
-                        <p>12.345.678/1234-56</p>
-                    </div>
-                    <div class="py-1 border-bottom border-black">
-                        <p class="g-font pb-1">Endereço</p>
-                        <p>Rua Brusque, 2926</p>
-                        <p>Bairro Potengi</p>
-                        <p>CEP 59112-490</p>
-                    </div>
-                </div>
-            </section>
+                </section>
+
+                <section class="col-3 d-flex flex-column row-gap-4">
+                    <button class="btn-crud-perfil forest-600 fs-large fw-semibold montserrat w-100 py-2.5 fs-4">Sair <i class="ps-2 fa-solid fa-arrow-right-from-bracket"></i></button>
+                    <button class="btn-crud-perfil forest-600 fs-large fw-semibold montserrat w-100 py-2.5 fs-4">Sair <i class="ps-2 fa-solid fa-arrow-right-from-bracket"></i></button>
+                    <button class="btn-crud-perfil forest-600 fs-large fw-semibold montserrat w-100 py-2.5 fs-4">Sair <i class="ps-2 fa-solid fa-arrow-right-from-bracket"></i></button>
+                    
+                </section>
+            </div>
 
         </main>
     {% endblock %}
