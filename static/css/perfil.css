@@ -4,7 +4,7 @@
 
 .sec-perfil-info{
   height: 14rem;
-  border: 1px solid rgba(188, 188, 188, 0.25);
+  border-top: 1px solid rgba(188, 188, 188, 0.25);
 }
 
 .perfil-ecoconsumo{
@@ -23,14 +23,18 @@
   font-size: 36px;
 }
 
-.card-meta{
+.card-meta, .btn-crud-perfil, .perfil-entregas, .entregas{
   border: 1px solid var(--forest-700);
+}
+
+.bottom-700{
+  border-bottom: 1px solid var(--forest-700);
 }
 
 .col-flex-2{
   flex: 40% 1 0;
 }
 
-.btn-crud-perfil{
-  border: solid 1px var(--forest-700);
+.perfil-entregas{
+  margin-top: 136px;
 }

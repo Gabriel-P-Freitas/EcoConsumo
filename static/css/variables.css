@@ -39,7 +39,7 @@
     --shadow-box-hover: 4px 4px 3px 0px #001722;
     --shadow-input: 0px 2px 0px 0px #000;
 } 
-.forest-200{color: var(--forest-200);} .forest-300{color: var(--forest-300);} .forest-700{color: var(--forest-700);}
+.forest-200{color: var(--forest-200);} .forest-300{color: var(--forest-300);} .forest-600{color: var(--forest-600);} .forest-700{color: var(--forest-700);}
 .bg-forest-200{background-color: var(--forest-200);} .bg-forest-300{background-color: var(--forest-300);} .bg-forest-700{background-color: var(--forest-700);}
 
 .secundary-400{color: var(--secundary-400);} .secundary-500{color: var(--secundary-500);} .secundary-600{color: var(--secundary-600);} .secundary-700{color: var(--secundary-700);}
