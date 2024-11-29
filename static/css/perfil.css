@@ -23,7 +23,7 @@
   font-size: 36px;
 }
 
-.card-meta, .btn-crud-perfil, .perfil-entregas, .entregas{
+.card-meta, .btn-crud-perfil, .perfil-entregas, .entregas, .vinculo, .empresas-vinculadas, .btn-mais-vinculos{
   border: 1px solid var(--forest-700);
 }
 
@@ -35,6 +35,34 @@
   flex: 40% 1 0;
 }
 
+.col-flexible{
+  flex: auto 1 0 !important; 
+  min-width: max-content;
+}
+
 .perfil-entregas{
   margin-top: 136px;
 }
+
+.icon-title-ecoconsumo{
+  text-indent: 0px;
+}
+
+.btn-crud-perfil:hover, .btn-mais-vinculos:hover{
+  background-color: var(--power-Gray-200);
+}
+
+.none-edit{
+  display: none;
+
+}
+/* 
+  .none-edit{
+   display: inline-block;
+  }
+
+  .view-edit{
+    display: none
+}
+
+*/
