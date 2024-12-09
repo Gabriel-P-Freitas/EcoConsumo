@@ -10,15 +10,17 @@ class User(db.Model):
     password = db.Column(db.String(128))
     phone = db.Column(db.String(15))
     user_type = db.Column(db.String(50), nullable=False)
+    picture = db.Column(db.String(255))
 
 
     __mapper_args__ = {'polymorphic_on': user_type}
 
-    def __init__(self, name, email=None, password=None, phone=None):
+    def __init__(self, name, email=None, password=None, phone=None, picture=None):
         self.name = name
         self.email = email
         self.password = password
         self.phone = phone
+        self.picture = picture
 
     def __repr__(self):
         return f"<User(name='{self.name}', email='{self.email}')>"
@@ -30,8 +32,8 @@ class Doador(User):
 
     birth_date = db.Column(db.String(10))
 
-    def __init__(self, name=None, email=None, password=None, birth_date=None, phone=None):
-        super().__init__(name, email, password, phone)
+    def __init__(self, name=None, email=None, password=None, birth_date=None, phone=None, picture=None):
+        super().__init__(name, email, password, phone, picture)
         self.birth_date = birth_date
 
     def __repr__(self):
@@ -51,8 +53,8 @@ class Empresa(User):
     def __init__(self, name=None, email=None, password=None, 
                  cnpj=None, phone=None, address_cep=None, 
                  address_neighborhood=None, address_street=None, 
-                 address_number=None):
-        super().__init__(name, email, password, phone)
+                 address_number=None, picture=None):
+        super().__init__(name, email, password, phone, picture)
         self.cnpj = cnpj
         self.address_zipcode = address_cep
         self.address_neighborhood = address_neighborhood

@@ -104,10 +104,12 @@ def oauth_google():
     google_token = request.get_json()
 
     user_info = google.get('userinfo', token=google_token).json()
+    print(user_info)
     email = user_info.get('email')
-    name = f'{user_info.get('name')}'
+    name = f'{user_info.get("name")}'
     birth_date = user_info.get('birth_date')
     phone_number = user_info.get('phone_number')
+    picture = user_info.get('picture')
 
     user = Doador.query.filter_by(email=email).first()
     if not user:
@@ -116,7 +118,8 @@ def oauth_google():
             email=email,
             password=None,
             birth_date=birth_date,
-            phone=phone_number
+            phone=phone_number,
+            picture=picture
         )
 
         db.session.add(user)
