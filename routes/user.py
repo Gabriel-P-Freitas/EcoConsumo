@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, url_for
 from utils.security import hash_password, check_password
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_jwt_extended import create_access_token
-from utils.oauth.google import google
+from utils.OAuth.google import google
 from models.user import User, Doador, Empresa, Admin, db
 
 
