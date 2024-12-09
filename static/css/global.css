@@ -48,6 +48,11 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   transition: all 0.3s ease-in;
 }
 
+.hover-link-btn:hover{
+  box-shadow: 1px 1px;
+  filter: blur(0.1px);
+}
+
 .btn-transition{
   padding: 10px 56px;
   border-radius: 0.625rem;
@@ -84,8 +89,15 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
   height: 100vh;
 }
 
+.h-content{
+  height: max-content;
+}
+
 .w-content{
   width: max-content;
+}
+.w-100{
+  width: 100%;
 }
 
 .p-32{
@@ -97,7 +109,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 }
 
 .p-56{
-  padding: 2.5rem;
+  padding: 3.5rem;
 }
 
 .p-64{
@@ -216,6 +228,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li, figure{
 
 .header-ecoconsumo{
   padding: 0.75rem 0px;
+}
+
+.header-element{
+  display: flex;
+  align-items: center;
+  column-gap: .75rem;
 }
 
 .message-system{

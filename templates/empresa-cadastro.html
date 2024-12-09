@@ -5,9 +5,15 @@
     <title>Cadastro | Consumidor</title>
 {% endblock %}
 
+{% block header_current %}
+    <div class="d-flex column-gap-4 align-items-center">
+        <a class="header-element secundary-600" href="{{url_for('empresa.cadastro')}}"><img src="../static/imgs/cadastro-instituicao.svg" alt="">Cadastre-se</a>
+        <a class="header-element power-Gray-300" href="{{url_for('empresa.login')}}"><img src="../static/imgs/login-white.svg" alt="">Login</a>
+    </div>
+{% endblock %}
+
 {% block main %}
 <div class="contents bg-power-Gray-100" id="conteudo">
-    {% include "components/_empresa-login.html" %}
     <main class="container main-cadastro position-relative py-5 row altura-100 align-items-center mx-auto column-gap-4">
         
         <section class="conteudo-cadastro col-5 z-1">
@@ -52,7 +58,7 @@
                     </div>
 
                     <div class="d-flex column-gap-4 passo1">
-                        <a href="{{url_for('basic.selecao')}}" class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center  py-2 transition-ease-in">Voltar</a>
+                        <a href="{{url_for('empresa.login')}}" class="btn-stretch btn-duo rounded-2 fw-semibold bg-power-Gray-100 gg-font secundary-600 d-inline-flex align-items-center justify-content-center  py-2 transition-ease-in">Voltar</a>
                         <input class="btn-stretch btn-duo rounded-2 fw-semibold bg-secundary-600 gg-font power-Gray-100 d-inline-flex align-items-center justify-content-center transition-ease-in" type="button" onclick="mostrarParte('passo2')" value="Avançar">
                     </div>
 

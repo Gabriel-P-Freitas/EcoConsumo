@@ -1,57 +1,10 @@
-/* .perfil {
-    padding: 20px;
-  }
-  
-  .perfil h2 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-top: 0;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .perfil ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .perfil il {
-    font-size: 18px;
-    padding: 5px 0;
-    border-bottom: 1px dashed #ccc;
-  }
-  
-  .perfil li:last-child {
-    border-bottom: none;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 2px 10px;
-    background-color: #326496;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px 0px;
-    font-size: 16px;
-  }
-  
-  .button:hover {
-    background-color: #3264c8;
-  } */
-
-/* zperfil-empresa */
 .title-ecoconsumo{
-  text-indent: 18.25rem;
+  text-indent: 21rem;
 }
 
 .sec-perfil-info{
   height: 14rem;
-  margin-bottom: 140px;
-  border: 1px solid rgba(188, 188, 188, 0.25);
+  border-top: 1px solid rgba(188, 188, 188, 0.25);
 }
 
 .perfil-ecoconsumo{
@@ -70,10 +23,46 @@
   font-size: 36px;
 }
 
-.card-meta{
+.card-meta, .btn-crud-perfil, .perfil-entregas, .entregas, .vinculo, .empresas-vinculadas, .btn-mais-vinculos{
   border: 1px solid var(--forest-700);
+}
+
+.bottom-700{
+  border-bottom: 1px solid var(--forest-700);
 }
 
 .col-flex-2{
   flex: 40% 1 0;
 }
+
+.col-flexible{
+  flex: auto 1 0 !important; 
+  min-width: max-content;
+}
+
+.perfil-entregas{
+  margin-top: 136px;
+}
+
+.icon-title-ecoconsumo{
+  text-indent: 0px;
+}
+
+.btn-crud-perfil:hover, .btn-mais-vinculos:hover{
+  background-color: var(--power-Gray-200);
+}
+
+.none-edit{
+  display: none;
+
+}
+/* 
+  .none-edit{
+   display: inline-block;
+  }
+
+  .view-edit{
+    display: none
+}
+
+*/
