@@ -25,7 +25,6 @@ def user():
 
     elif request.method == 'POST':
         data = request.get_json()
-        print(data)
         
         user_type = data.get('user_type').lower()
         hashed_password = hash_password(data.get('password'))
@@ -71,9 +70,16 @@ def me():
     if request.method == 'GET':
         user_id = get_jwt_identity()
 
-        user = Doador.query.filter_by(id=user_id).first()
+        
+        user = User.query.filter_by(id=user_id).first()
+    
+        if user.user_type == 'empresa':
+            user = Empresa.query.filter_by(id=user_id).first()
+        elif user.user_type == 'doador':
+            user = Doador.query.filter_by(id=user_id).first()
 
         user_data = user.__dict__.copy()
+        
         user_data.pop('_sa_instance_state')
         user_data.pop('password')
 
