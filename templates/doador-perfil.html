@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Perfil Doador</title>
+    <link rel="stylesheet" href="../static/css/perfil.css">
+{% endblock %}
+
+<div class="contents">
+    {% block header_current %}
+        <div class="d-flex column-gap-4 align-items-center">
+            <a href="#" class="header-element forest-200">
+                <img src="../static/imgs/perfil-doador-hed.svg" alt="">
+                Perfil
+            </a>
+        </div>
+    {% endblock %}
+    {% block main %}
+        <main class="pb-5">
+            <section class="sec-perfil-info bg-raphosedy-700 mb-3 d-flex align-items-end">
+                <div class="content-perfil container position-relative">
+                    <figure class="perfil-ecoconsumo position-absolute w-content rounded-circle bg-power-Gray-200 p-56">
+                        <img class="" src="../static/imgs/perfil_doador.svg" alt="">
+                    </figure>
+                    <h1 class="title-ecoconsumo fw-semibold forest-200">Joel <i class="none-edit power-Gray-300 icon-title-ecoconsumo ps-1 fa-solid fa-pen-to-square"></i></h1>
+                </div>
+            </section>
+
+            <div class="hero container row mx-auto">
+                <section class="perfil-entregas rounded-3 p-0 pb-4 col-3 h-content">
+                    <h6 class="bottom-700 forest-300 text-center fw-bold py-3">Minhas Entregas</h6>
+                    <ul class="px-2 d-flex flex-column py-4 row-gap-4">
+                        <li>
+                            <a href="" class="entregas hover-link-btn transition-ease-in d-flex flex-column row-gap-1 p-2 rounded-3 forest-700 w-100">
+                                <h6 class="bottom-700 fw-bold mb-2">Oboticário</h6>
+                                <p class="fs-large fw-bold">Perfume vázio</p>
+                                <p class="fs-large fw-bold">Vidro</p>
+                                <p>24/11/2002 às 13:59</p>
+                                <p>10 Unidades</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="entregas d-flex hover-link-btn transition-ease-in flex-column row-gap-1 p-2 rounded-3 forest-700 w-100">
+                                <h6 class="bottom-700 fw-bold mb-2">Oboticário</h6>
+                                <p class="fs-large fw-bold">Perfume vázio</p>
+                                <p class="fs-large fw-bold">Vidro</p>
+                                <p>24/11/2002 às 13:59</p>
+                                <p>10 Unidades</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="entregas d-flex hover-link-btn transition-ease-in flex-column row-gap-1 p-2 rounded-3 forest-700 w-100">
+                                <h6 class="bottom-700 fw-bold mb-2">Oboticário</h6>
+                                <p class="fs-large fw-bold">Perfume vázio</p>
+                                <p class="fs-large fw-bold">Vidro</p>
+                                <p>24/11/2002 às 13:59</p>
+                                <p>10 Unidades</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="px-2"><a class="btn-mais-vinculos fw-bold hover-link-btn transition-ease-in w-100 text-center rounded-3 forest-700 fs-4 py-3" href="">Ver mais</a></div>
+                </section>
+                <div class="content-perfil px-4 mx-auto container col-9 row">
+                    <section class="col-8 align-items-center column-gap-4 mb-4 p-3 border-black border rounded-4">
+                        <div class=" d-flex  flex-column  row-gap-3">
+                            <div class="py-1 border-bottom border-black fs-large">
+                                <p class="fs-xglarge">Email</p>
+                                <p>{{ user.email }}<i class="none-edit ps-1 fa-solid fa-pen-to-square forest-700 align-middle"></i></p>
+                            </div>
+                            <div class="py-1 border-bottom border-black fs-large">
+                                <p class="fs-xglarge">Telefone</p>
+                                <p class="">{{ user.telefone }}<i class="none-edit ps-1 fa-solid fa-pen-to-square forest-700 align-middle"></i></p>
+                            </div>
+                            <div class="py-1 border-bottom border-black fs-large">
+                                <p class="fs-xglarge">Nascimento</p>
+                                <p>{{ user.birth_date }} <i class="none-edit ps-1 fa-solid fa-pen-to-square forest-700 align-middle"></i> </p>
+                            </div>
+                            <div class="py-1 border-bottom border-black fs-large">
+                                <p class="fs-xglarge pb-1">Senha</p>
+                                <p class="none-cursor-edit">xxxxxxxx <i class="none-edit ps-1 fa-solid fa-pen-to-square forest-700 align-middle"></i></p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="col-4 d-flex flex-column row-gap-4">
+                        <button class="btn-crud-perfil transition-ease-in hover-link-btn forest-600 fs-large fw-semibold montserrat w-100 py-2.5 fs-4"><span class="view-edit">Sair</span> <span class="none-edit">Voltar </span> <i class="ps-2 fa-solid fa-arrow-right-from-bracket"></i> </button>
+                        <button class="btn-crud-perfil transition-ease-in hover-link-btn forest-600 fs-large fw-semibold montserrat w-100 py-2.5 fs-4">Editar <i class="ps-2 view-edit fa-solid fa-pen-to-square forest-700"></i> <i class="fa-solid fa-check none-edit"></i></button>
+                        <button class="btn-crud-perfil view-edit transition-ease-in hover-link-btn red-waring fs-large fw-semibold montserrat w-100 py-2.5 fs-4">Excluir conta <i class="ps-2 fa-regular fa-trash-can"></i></button>
+                
+                    </section>
+                    <section class="col-12 empresas-vinculadas rounded-3 pb-4">
+                        <h5 class="forest-200 fw-bold py-3 bottom-700 px-0 text-center">Empresas Vinculadas</h5>
+                        <ul class="row gap-3 px-2.5 py-4">
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="vinculo col-3 col-flexible rounded-3 py-2.5 hover-link-btn transition-ease-in">
+                                <a class="d-flex align-items-center column-gap-3 forest-700" href="">
+                                    <figure>
+                                        <img src="../static/imgs/Instituição-Icon-sm.svg" alt="">
+                                    </figure>
+                                    <div class="content-vinculo d-flex flex-column row-gap-1 w-100">
+                                        <h6 class="bottom-700 fw-bold mb-1">Oboticário</h6>
+                                        <p>(xx) x xxxx-xxxx </p>
+                                        <p>oboticario@gmail.com</p>
+                                        <p>10 pontos</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <a class="btn-mais-vinculos fw-bold hover-link-btn transition-ease-in w-100 text-center rounded-3 forest-700 fs-4 py-3" href="">Ver mais</a>
+                    </section>
+                </div>
+            </div>
+
+        </main>
+    {% endblock %}
+</div>

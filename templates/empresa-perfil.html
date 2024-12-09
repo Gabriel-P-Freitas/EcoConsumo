@@ -31,13 +31,14 @@
                 </div>
             </div>
         </header>
+
         <main class="">
             <section class="sec-perfil-info bg-raphosedy-700  d-flex align-items-end">
                 <div class="content-perfil container position-relative">
                     <figure class="perfil-ecoconsumo position-absolute w-content rounded-circle bg-power-Gray-200 p-56">
                         <img class="" src="../static/imgs/img_perfil.svg" alt="">
                     </figure>
-                    <h1 class="title-ecoconsumo fw-semibold secundary-600">OBOTICÁRIO</h1>
+                    <h1 class="title-ecoconsumo fw-semibold secundary-600">{{ user.nome }}</h1>
                 </div>
             </section>
 
@@ -46,21 +47,21 @@
                     <div class="col d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font">Email</p>
-                            <p>oboticario.empresa@gmail.com</p>
+                            <p>{{ user.email }}</p>
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font">Telefone</p>
-                            <p>(xx) x xxxx-xxxx</p>
+                            <p>{{ user.telefone }}</p>
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font">CNPJ</p>
-                            <p>12.345.678/1234-56</p>
+                            <p>{{ user.cnpj }}</p>
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font pb-1">Endereço</p>
-                            <p>Rua Brusque, 2926</p>
-                            <p>Bairro Potengi</p>
-                            <p>CEP 59112-490</p>
+                            <p>{{ user.endereco_rua }}, {{ user.endereco_numero }}</p>
+                            <p>Bairro {{ user.endereco_bairro }}</p>
+                            <p>CEP {{ user.endereco_cep }}</p>
                         </div>
                     </div>
 

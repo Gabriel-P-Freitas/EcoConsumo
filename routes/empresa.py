@@ -1,5 +1,5 @@
-from flask import Blueprint, url_for, render_template, redirect, request
-
+from flask import Blueprint, url_for, render_template, redirect, request, session
+from api import api_request
 
 bp = Blueprint('empresa', __name__)
 
@@ -13,4 +13,8 @@ def login():
 
 @bp.route('/perfil')
 def perfil():
-    return render_template(f'empresa-perfil.html')
+    token = session['token']
+    data = api_request("GET", f"user/me", token)
+    print(data, data.text)  
+
+    return render_template(f'doador-perfil.html', user=data)

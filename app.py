@@ -1,9 +1,16 @@
 from flask import Flask
 from config import Config
+from extensions import oauth
+
 
 # Config
 app = Flask(__name__)
 app.config.from_object(Config)
+
+
+# Extensions
+oauth.init_app(app)
+
 
 # Blueprints
 from routes.basic import bp as basic_bp

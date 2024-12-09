@@ -1,5 +1,5 @@
-from flask import Blueprint, url_for, render_template, redirect, request
-
+from flask import Blueprint, url_for, render_template, redirect, request, session
+from api import api_request
 
 bp = Blueprint('doador', __name__)
 
@@ -10,3 +10,12 @@ def cadastro():
 @bp.route('/login')
 def login():
     return render_template(f'doador-login.html')
+
+@bp.route('/perfil')
+def perfil():
+    token = session['token']
+    data = api_request("GET", f"user/me", token)
+
+    user_data = data.json().get('user_data')
+
+    return render_template(f'doador-perfil.html', user=user_data)
