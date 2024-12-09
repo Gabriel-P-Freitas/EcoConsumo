@@ -105,7 +105,7 @@ def oauth_google():
 
     user_info = google.get('userinfo', token=google_token).json()
     email = user_info.get('email')
-    name = f'{user_info.get('name')}'
+    name = f'{user_info.get("name")}'
     birth_date = user_info.get('birth_date')
     phone_number = user_info.get('phone_number')
 
