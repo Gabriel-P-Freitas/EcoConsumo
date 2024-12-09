@@ -43,9 +43,21 @@ class Empresa(User):
 
     cnpj = db.Column(db.String(14), unique=True)
 
-    def __init__(self, name=None, email=None, password=None, cnpj=None, phone=None):
+    address_cep = db.Column(db.String(8))
+    address_neighborhood = db.Column(db.String(100))
+    address_street = db.Column(db.String(100))
+    address_number = db.Column(db.String(10))
+
+    def __init__(self, name=None, email=None, password=None, 
+                 cnpj=None, phone=None, address_cep=None, 
+                 address_neighborhood=None, address_street=None, 
+                 address_number=None):
         super().__init__(name, email, password, phone)
         self.cnpj = cnpj
+        self.address_zipcode = address_cep
+        self.address_neighborhood = address_neighborhood
+        self.address_street = address_street
+        self.address_number = address_number
 
     def __repr__(self):
         return f"<Empresa {self.name}>"

@@ -1,10 +1,10 @@
-from flask import Blueprint
 from extensions import oauth
+from config import OAuth
 
 google = oauth.register(
     name='google',
-    client_id="463383199138-ua2bpp0et6eiap77vnd82t9hj12qqmim.apps.googleusercontent.com",
-    client_secret="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",
+    client_id=OAuth.GOOGLE_CLIENT_ID,
+    client_secret=OAuth.GOOGLE_CLIENT_SECRET,
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',

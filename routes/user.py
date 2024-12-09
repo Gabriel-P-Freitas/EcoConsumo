@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify, url_for
 from utils.security import hash_password, check_password
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_jwt_extended import create_access_token
-from utils.OAuth.google import google
+from utils.oauth.google import google
 from models.user import User, Doador, Empresa, Admin, db
+
 
 bp = Blueprint('user', __name__)
 
@@ -11,14 +13,15 @@ def user():
     if request.method == 'GET':
         users = User.query.all()
 
-        data = [{
-            'id': user.id,
-            'user_type': user.user_type,
-            'name': user.name,
-            'email': user.email
-        } for user in users]
+        data = []
+        for user in users:
+            user_variables = user.__dict__.copy()
+            user_variables.pop('_sa_instance_state')
+            user_variables.pop('password')
+            
+            data.append(user_variables)
 
-        return jsonify({'data': data}), 200
+        return jsonify({'users': data}), 200
 
     elif request.method == 'POST':
         data = request.get_json()
@@ -37,11 +40,16 @@ def user():
             )
         elif user_type == 'empresa':
             user = Empresa(
-                name=data['name'],
-                email=data['email'],
-                password=hashed_password,
-                cnpj=data['cnpj'],
-                phone=data.get('phone')
+                name = data.get('name'),
+                email = data.get('email'),
+                password = hashed_password,
+                cnpj = data.get('cnpj'),
+                phone = data.get('phone'),
+
+                address_cep = data.get('address_cep'),
+                address_neighborhood = data.get('address_neighborhood'),
+                address_street = data.get('address_street'),
+                address_number = data.get('address_number')
             )
         elif user_type == 'admin':
             user = Admin(
@@ -56,6 +64,23 @@ def user():
         db.session.add(user)
         db.session.commit()
         return jsonify({'message': f'{user_type} registered successfully'}), 201
+    
+@bp.route('/me', methods=['GET', 'POST'])
+@jwt_required()
+def me():
+    if request.method == 'GET':
+        user_id = get_jwt_identity()
+
+        user = Doador.query.filter_by(id=user_id).first()
+
+        user_data = user.__dict__.copy()
+        user_data.pop('_sa_instance_state')
+        user_data.pop('password')
+
+        return jsonify({'user_data': user_data}), 200
+
+    elif request.method == 'POST':
+        return "Não implementado"
 
 @bp.route('/auth', methods=['POST'])
 def register():
@@ -68,31 +93,28 @@ def register():
     token = create_access_token(identity=user.id)
     return jsonify({'access_token': token}), 200
     
+@bp.route('/oauth/google', methods=['GET', 'POST'])
+def oauth_google(): 
+    google_token = request.get_json()
 
-# @bp.route('/google/login')
-# def google_login(): 
-#     redirect_uri = url_for('user.google_authorize', _external=True)
-#     return google.authorize_redirect(redirect_uri, prompt='select_account')
+    user_info = google.get('userinfo', token=google_token).json()
+    email = user_info.get('email')
+    name = f'{user_info.get('name')}'
+    birth_date = user_info.get('birth_date')
+    phone_number = user_info.get('phone_number')
 
-# @bp.route('/google/authorize')
-# def google_authorize(): 
-#     try:
-#         token = google.authorize_access_token()   
-#         user_info = google.get('userinfo').json() 
-#         print(user_info)
+    user = Doador.query.filter_by(email=email).first()
+    if not user:
+        user = Doador(
+            name=name,
+            email=email,
+            password=None,
+            birth_date=birth_date,
+            phone=phone_number
+        )
 
-#         doador = Doador.query.filter_by(email=user_info['email']).first()
-
-#         if not doador:
-#             doador = Doador(
-#                 name=user_info['name'],
-#                 email=user_info['email']
-#             )
-#             db.session.add(doador)
-#             db.session.commit()
-
-#         access_token = create_access_token(identity=doador.id)
-#         return jsonify({'access_token': access_token}), 200
-
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
+        db.session.add(user)
+        db.session.commit()
+    
+    token = create_access_token(identity=user.id)
+    return jsonify({'access_token': token}), 200
