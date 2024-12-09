@@ -17,5 +17,6 @@ def perfil():
     data = api_request("GET", f"user/me", token)
 
     user_data = data.json().get('user_data')
+    print(user_data)
 
     return render_template(f'doador-perfil.html', user=user_data)
