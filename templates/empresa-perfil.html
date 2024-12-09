@@ -27,7 +27,7 @@
                 </div>
             </section>
 
-            <section class="container pb-64">
+            <section class="container pb-64 mt-5 pt-5">
                 <section class="row align-items-center column-gap-4 pb-5">
                     <div class="col d-flex border-black border rounded-4 flex-column p-3 row-gap-3">
                         <div class="py-1 border-bottom border-black">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font">Telefone</p>
-                            <p>{{ user.telefone }}</p>
+                            <p>{{ user.phone }}</p>
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font">CNPJ</p>
@@ -44,9 +44,9 @@
                         </div>
                         <div class="py-1 border-bottom border-black">
                             <p class="g-font pb-1">Endereço</p>
-                            <p>{{ user.endereco_rua }}, {{ user.endereco_numero }}</p>
-                            <p>Bairro {{ user.endereco_bairro }}</p>
-                            <p>CEP {{ user.endereco_cep }}</p>
+                            <p>{{ user.address_street }}, {{ user.address_number }}</p>
+                            <p>Bairro {{ user.address_neighborhood }}</p>
+                            <p>CEP {{ user.address_cep }}</p>
                         </div>
                     </div>
 

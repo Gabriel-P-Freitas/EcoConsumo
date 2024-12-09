@@ -9,7 +9,7 @@
 
 .perfil-ecoconsumo{
   border: solid 5px var(--raphosedy-600);
-  transform: translateY(-40%);
+  transform: translateY(-50%);
   top: 50%;
 }
 

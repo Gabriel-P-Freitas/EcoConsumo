@@ -15,6 +15,8 @@ def login():
 def perfil():
     token = session['token']
     data = api_request("GET", f"user/me", token)
-    print(data, data.text)  
 
-    return render_template(f'doador-perfil.html', user=data)
+    user_data = data.json().get('user_data')
+    print(user_data)
+
+    return render_template(f'empresa-perfil.html', user=user_data)
